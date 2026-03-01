@@ -5,8 +5,21 @@
   "serves": "",
   "category": "Desserts",
   "date": "2022-02-28",
-  "ingredients": [],
-  "instructions": "",
+  "ingredients": [
+    "**Preheat the oven to 350\u00b0.**",
+    "3 cup flour",
+    "1tsp baking soda",
+    "\u00be tsp salt",
+    "1 cup unsalted butter",
+    "1 cup light brown sugar, packed",
+    "\u00be cup sugar",
+    "2 eggs",
+    "1tbsp vanilla extract",
+    "1 cup craisins",
+    "1 \u00bd cup white chocolate chips",
+    "1 cup chopped macadamia nuts"
+  ],
+  "instructions": "Line a cookie sheet with parchment paper.\nCream the butter and sugars together until fluffy. Beat in the eggs and the vanilla. Set aside.\nIn another bowl combine the flour, baking soda and salt.\nAdd the flour mixture to the butter and sugar a cup at a time, blending well after each addition. Add the craisins, white chocolate chips and macadamias. Mix well.\nUsing heaping spoonfuls place the dough on the cookie sheet and bake for 11-15 minutes.",
   "images": [
     "https://static.wixstatic.com/media/75d545_8b921e44cd524e0d890107751e04ae6b~mv2.jpg"
   ],

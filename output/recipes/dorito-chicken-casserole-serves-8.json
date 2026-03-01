@@ -5,8 +5,21 @@
   "serves": "Serves 8",
   "category": "Casserole",
   "date": "2022-03-03",
-  "ingredients": [],
-  "instructions": "",
+  "ingredients": [
+    "1 tbsp butter",
+    "1 small Vidalia onion, chopped",
+    "4 oz cream cheese",
+    "1 deli rotisserie chicken, shredded",
+    "2 (10.75 oz) cans cream of chicken soup",
+    "2 (10 oz) cans Rotel tomatoes with green chiles, undrained",
+    "1 can black beans",
+    "2 tsp chili powder",
+    "1 tsp ground cumin",
+    "1 regular size bag Dorito nacho chips",
+    "2 cups Mexican blend shredded cheese",
+    "**Preheat oven to 350\u00ba**"
+  ],
+  "instructions": "Spray a 13 x 9 casserole dish with cooking spray and set aside.\nIn a large skillet over medium heat, melt the butter and cook the onion until translucent.\nCut the cream cheese into small cubes and add to the onions. Add the chicken, soup, tomatoes, black beans, chili powder and cumin. Stir until the cream cheese has melted.\nCoarsely crumble with your hands, about a third of the Doritos and spread evenly over the bottom of the casserole.\nPour half of the chicken mixture over the Doritos. Top with half the cheese and then another layer of the chicken mixture.\nTop with the remaining Doritos (coarsely crumbled) and then top with the remaining cheese.\nBake for 30 minutes or the cheese has melted and the mixture is bubbly. Serve with cornbread.",
   "images": [
     "https://static.wixstatic.com/media/75d545_e31bff11b12f4586ae36dff50e306b2e~mv2.png"
   ],

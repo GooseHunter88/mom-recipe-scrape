@@ -5,8 +5,25 @@
   "serves": "Serves 6",
   "category": "Soup & Sandwiches",
   "date": "2022-03-04",
-  "ingredients": [],
-  "instructions": "",
+  "ingredients": [
+    "\u00bc lb Pancetta, from deli, sliced very thin",
+    "4 tbsp extra virgin olive oil",
+    "1 cup diced carrots",
+    "1 small Vidalia onion, diced",
+    "2 cloves garlic, minced",
+    "8 cups cubed butternut squash, fresh",
+    "2 golden delicious apples, peeled and chopped",
+    "2 tsp chopped fresh thyme",
+    "2 tsp chopped fresh rosemary",
+    "8 cups chicken broth",
+    "4 tbsp maple syrup",
+    "\u00bd tsp kosher salt",
+    "\u00bc tsp ground black pepper",
+    "2 tbsp cr\u00e8me fraiche",
+    "2 tsp cinnamon",
+    "13.66 oz can light coconut milk (Thai Kitchen)"
+  ],
+  "instructions": "Heat the olive oil in a large sauce pot, over medium heat and add the pancetta slices. Cook until crisp, remove from the pot and drain on a paper towel.\nIn the same pot, add the carrot, garlic, celery and onion. Cook until the vegetables have softened.\nStir in the butternut squash, apple, thyme, rosemary and cinnamon and cook for 3-4 minutes, or until the squash begins to brown.\nAdd the chicken broth, salt and pepper and bring to a boil. Reduce the heat and simmer for about 30 minutes or until the squash is fork tender.\nUse an immersion blender to pur\u00e9e the soup mixture.\nAdd the coconut milk and the maple syrup.\nPlace in bowls and top with a dollop of cr\u00e8me fraiche and a pancetta slice.",
   "images": [],
   "local_image": "/Users/remibarton/Documents/mom-recipe-scrape/output/images/butternut-squash-soup-with-crispy-pancetta-serves-6.png"
 }

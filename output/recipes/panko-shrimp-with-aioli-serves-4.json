@@ -5,8 +5,21 @@
   "serves": "Serves 4",
   "category": "Main Dish",
   "date": "2022-03-03",
-  "ingredients": [],
-  "instructions": "",
+  "ingredients": [
+    "2 cups Panko",
+    "2 tbsp extra virgin olive oil",
+    "1 tsp garlic powder",
+    "Kosher salt & fresh ground pepper",
+    "2 large eggs",
+    "1 lb uncooked jumbo shrimp, peeled and deveined",
+    "1 cup flour",
+    "2 tbsp light mayonnaise",
+    "2 tbsp sweet chili sauce",
+    "1 tbsp sriracha sauce",
+    "1 lime, juiced",
+    "1 tsp honey"
+  ],
+  "instructions": "Chopped fresh parsley\n**Preheat oven to 400\u00ba**\nPlace a piece of parchment on a baking sheet and set aside.\nIn a small bowl, mix the olive oil, panko, and garlic powder. Season with salt and pepper, to taste.\nIn a medium bowl, whisk the eggs. Place the flour in a pie plate and with a fork or tongs, dredge the shrimp (one at a time) in the flour, dip in the egg and then dredge through to panko until coated.\nPlace the shrimp on the parchment paper and bake for 12-15 minutes or until the panko is golden brown.\nWhile the shrimp are baking, make the sauce by whisking the mayonnaise, chili sauce, sriracha, lime juice and honey in a small bowl. Season with salt and pepper to taste.\nDrizzle the sauce over the shrimp and garnish with the parsley.",
   "images": [
     "https://static.wixstatic.com/media/75d545_e31bff11b12f4586ae36dff50e306b2e~mv2.png"
   ],

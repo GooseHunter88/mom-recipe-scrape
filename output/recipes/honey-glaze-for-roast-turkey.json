@@ -5,8 +5,16 @@
   "serves": "",
   "category": "Gravy, Sauce & Dressing",
   "date": "2022-03-03",
-  "ingredients": [],
-  "instructions": "",
+  "ingredients": [
+    "\u00bd cup honey",
+    "\u00bd cup Dijon mustard",
+    "1 \u00bd tsp minced fresh rosemary",
+    "1 tsp onion powder",
+    "\u00bd tsp salt",
+    "\u00bd tsp garlic powder",
+    "\u00bc tsp pepper"
+  ],
+  "instructions": "Mix all the ingredients in a small bowl and brush the turkey before roasting. While the turkey roasts, baste, alternating with the pan drippings and the honey glaze .",
   "images": [
     "https://static.wixstatic.com/media/75d545_e31bff11b12f4586ae36dff50e306b2e~mv2.png"
   ],

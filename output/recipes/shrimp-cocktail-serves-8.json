@@ -5,8 +5,17 @@
   "serves": "Serves 8",
   "category": "Appetizers & Dips",
   "date": "2022-02-28",
-  "ingredients": [],
-  "instructions": "",
+  "ingredients": [
+    "2lbs jumbo shrimp, shelled and deviened",
+    "4 cloves garlic",
+    "3 bay leaves",
+    "2tbsp salt",
+    "1tbsp coarse black pepper",
+    "2 tsp celery seed",
+    "1tbsp Old Bay",
+    "1tsp thyme leaves"
+  ],
+  "instructions": "Fill a large pop with water and add all the seasonings.\nBring the water to a boil and let it boil for 5 minutes.\nPlace the shrimp to the water.\nOnce the shrimp turns pink and floats to the top it\u2019s cooked.\nRemove the shrimp to a strainer and cool.\nArrange on a platter and serve with your favorite cocktail sauce and lemon.",
   "images": [
     "https://static.wixstatic.com/media/75d545_47374bc4d1764546a68741fc171ac431~mv2.jpeg"
   ],

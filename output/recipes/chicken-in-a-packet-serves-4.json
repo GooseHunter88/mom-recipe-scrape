@@ -5,8 +5,16 @@
   "serves": "Serves 4",
   "category": "Main Dish",
   "date": "2022-03-01",
-  "ingredients": [],
-  "instructions": "",
+  "ingredients": [
+    "4 tbsp butter",
+    "4 split chicken breast, bone in, skinless",
+    "3 cups herbed stuffing",
+    "\u00bd cup water",
+    "1 large golden delicious apple, cored and quartered",
+    "Paprika",
+    "Salt& pepper"
+  ],
+  "instructions": "Heat oven to 450\u00ba\nTear off 4 12\u201d in length pieces of foil and fold each in half cross wise.\nGrease the bottom and the top sides inside the fold.\nPlace 1 tbsp of butter in the center of each bottom half of the folded foil and top with \u00be cup of stuffing.\nSprinkle the stuffing with 2 tbsp of water and place a chicken breast on top.\nSeason the breast with paprika, salt & pepper, and tuck an apple wedge alongside of each breast.\nFold the foil closed and pinch along the edges to seal tight. Arrange the packets on a large baking sheet and bake for 35 minutes.",
   "images": [
     "https://static.wixstatic.com/media/75d545_e31bff11b12f4586ae36dff50e306b2e~mv2.png"
   ],

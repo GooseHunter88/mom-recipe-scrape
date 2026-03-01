@@ -1,0 +1,24 @@
+{
+  "ok": [
+    {
+      "slug": "antipasto-pasta-salad-serves-16",
+      "status": "ok",
+      "ingredients_count": 10,
+      "instructions_length": 200
+    },
+    {
+      "slug": "big-mac-dip",
+      "status": "ok",
+      "ingredients_count": 24,
+      "instructions_length": 842
+    },
+    {
+      "slug": "chicken-pot-pie-i",
+      "status": "ok",
+      "ingredients_count": 8,
+      "instructions_length": 313
+    }
+  ],
+  "still_broken": [],
+  "errors": []
+}

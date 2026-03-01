@@ -5,8 +5,20 @@
   "serves": "Serves 8",
   "category": "Crockpot",
   "date": "2023-01-10",
-  "ingredients": [],
-  "instructions": "",
+  "ingredients": [
+    "2lbs bulk Italian sausage",
+    "1 medium onion, diced",
+    "1 15oz can dark kidney beans, drained and rinsed",
+    "1 15oz can light red kidney beans, drained and rinsed",
+    "1 15oz can black beans, drained and rinsed",
+    "2 10oz cans Rotel tomatoes with green chiles, undrained",
+    "3 cloves garlic, minced",
+    "\u00bd tsp kosher salt",
+    "1/8 tsp ground black pepper",
+    "1 packet chili seasoning mix (1.25oz packet)",
+    "3 cups beef broth"
+  ],
+  "instructions": "In a large saucepot, over medium high heat, brown the sausage breaking into small pieces as it cooks. Drain.\nSpray the crockpot with cooking spray and place all the ingredients (including the sausage) into the crockpot.\nCover and cook on low for 6 hours or high for 3-4 hours.\nServe with shredded cheese, parsley, sour cream and either taco chips or cornbread.",
   "images": [
     "https://static.wixstatic.com/media/75d545_f3264cea912149f3a1b275cfb2bd7c5b~mv2.png"
   ],

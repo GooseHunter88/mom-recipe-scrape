@@ -5,8 +5,16 @@
   "serves": "Serves 6",
   "category": "Main Dish",
   "date": "2022-02-28",
-  "ingredients": [],
-  "instructions": "",
+  "ingredients": [
+    "\u00be lb angel hair pasta",
+    "2 \u00bd cup plus 2 tbsp chicken broth",
+    "3 garlic cloves, minced",
+    "\u00bc tsp lemon pepper seasoning",
+    "\u00bc cup plus 2 tbsp chopped green onions, divided",
+    "\u00bc cup plus 2 tbsp minced fresh parsley",
+    "1 \u00bdlb uncooked shrimp, peeled, deveined and tails removed"
+  ],
+  "instructions": "Cook the pasta according to the package directions.\nMeanwhile, in a large saucepan, combine the broth, garlic, lemon pepper and 3 tbsp each of green onion and parsley; cook for 3-5 minutes or until the shrimp has turned pink.\nDrain the pasta and place in a large serving bowl. Top with the shrimp mixture and the remaining onions and parsley.\nServe with freshly grated Parmesan cheese and warm crusty bread",
   "images": [
     "https://static.wixstatic.com/media/75d545_536c3377fb174ca7b517674e2722bbe4~mv2.jpg"
   ],

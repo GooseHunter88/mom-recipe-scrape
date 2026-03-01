@@ -5,8 +5,21 @@
   "serves": "Serves 4",
   "category": "Main Dish",
   "date": "2022-03-05",
-  "ingredients": [],
-  "instructions": "",
+  "ingredients": [
+    "4 salmon filets, skin removed",
+    "3 tsp olive oil",
+    "3 tbsp butter",
+    "6 cloves garlic, minced",
+    "\u00bd cup finely chopped onion",
+    "7 oz jar julienne sun-dried tomato in oil, drained",
+    "2/3 cup vegetable broth",
+    "2 cups heavy cream",
+    "5 cups baby spinach",
+    "\u00be cup freshly grated parmesan cheese",
+    "2 tbsp fresh parsley, chopped",
+    "Salt & pepper to taste"
+  ],
+  "instructions": "Season both sides of the salmon filets with salt and pepper to taste.\nIn a large skillet over medium high heat, heat the olive oil and cook the salmon for about 4 minutes per side or until desired temperature. Remove from the pan and set aside.\nIn the same skillet, melt the butter and add the garlic. Cook just until fragrant and add the sun-dried tomatoes. Stir and cook for about 2 minutes.\nAdd the vegetable broth and cook until the liquid has reduced slightly. Reduce the heat to low.\nAdd the heavy cream and season with salt and pepper to taste. Cook, stirring often, for about 1o minutes.\nAdd the spinach and stir until just wilted. Add in the parmesan cheese. Stir until the cheeses has melted.\nPlace the salmon filets back in the skillet and spoon the sauce over the tops. Sprinkle with the chopped parsley and serve.\nServe over pasta or rice.",
   "images": [
     "https://static.wixstatic.com/media/75d545_e31bff11b12f4586ae36dff50e306b2e~mv2.png"
   ],

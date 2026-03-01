@@ -5,8 +5,13 @@
   "serves": "Serves 6",
   "category": "Side Dishes",
   "date": "2022-02-28",
-  "ingredients": [],
-  "instructions": "",
+  "ingredients": [
+    "2 \u00bd lb white cabbage",
+    "3 tbsp butter",
+    "2 tsp kosher salt",
+    "2 tsp freshly ground black pepper"
+  ],
+  "instructions": "Cut the cabbage in half and remove the core. Slice the cabbage as thinly as possible.\nMelt the butter in a large pan over medium high heat. Add the cabbage, kosher salt and pepper. Saut\u00e9 for 10 to 15 minutes stirring often. Cook until the cabbage is tender and has begun to brown.\nRemove from the heat and season with additional salt and pepper to taste.\nServe immediately.",
   "images": [
     "https://static.wixstatic.com/media/75d545_014f83c9b53a466d959598c5d231f9f0~mv2.jpg"
   ],

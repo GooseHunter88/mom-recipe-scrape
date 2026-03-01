@@ -5,8 +5,19 @@
   "serves": "Serves 8",
   "category": "Soup & Sandwiches",
   "date": "2022-12-05",
-  "ingredients": [],
-  "instructions": "",
+  "ingredients": [
+    "6 Italian sausage links, casings removed",
+    "2 medium Vidalia onions, chopped",
+    "4 large garlic cloves, minced",
+    "3 15oz cans cannellini beans",
+    "2 (32oz) Tuscany Chicken broth",
+    "4 cups water",
+    "1 \u00bd cup white wine",
+    "\u00bd tsp pepper",
+    "1 10oz package of baby spinach",
+    "Shredded Parmesan"
+  ],
+  "instructions": "Cook the sausage and the onion together in a large pot over medium high heat. Cook until the sausage is no longer pink; drain and add back to the pot.\nAdd the garlic and cook for another minute.\nStir in the beans, broth, water, wine and pepper. Bring to a boil and add the spinach. Stir until the spinach has wilted. Serve with shredded Parmesan as a garnish.",
   "images": [],
   "local_image": "/Users/remibarton/Documents/mom-recipe-scrape/output/images/sausage-white-bean-soup-serves-8.png"
 }

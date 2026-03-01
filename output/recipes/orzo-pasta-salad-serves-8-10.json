@@ -5,8 +5,26 @@
   "serves": "Serves 8-10",
   "category": "Pasta, Rice & Beans",
   "date": "2022-04-03",
-  "ingredients": [],
-  "instructions": "",
+  "ingredients": [
+    "**Salad**",
+    "2 cups whole wheat orzo",
+    "1 pint cherry tomatoes, halved",
+    "1 pint yellow cherry tomatoes, halved",
+    "2 mini seedless cucumbers, chopped",
+    "1 cup halved black olives",
+    "\u00bc cup finely diced red onion",
+    "2 ears sweet corn, kernels cut from cob",
+    "\u00bd cup crumbled goat cheese",
+    "4 tbsp chopped dry packed sundried tomatoes",
+    "3 tbsp chopped flat parsley",
+    "**Dressing**",
+    "\u00bc cup extra virgin olive oil",
+    "3 tbsp fresh lemon juice",
+    "1 tbsp honey",
+    "\u00bd tsp salt",
+    "\u00bc tsp fresh ground black pepper"
+  ],
+  "instructions": "Cook the orzo according to the package directions. Drain and rinse under cold water until no longer warm.\nAdd all the salad ingredients, including pasta to a large salad bowl and toss to combine.\nIn a small mixing bowl, add all the dressing ingredients and whisk until well blended.\nAdd the dressing to the salad and toss to combine. Refrigerate to chill, until ready to serve.",
   "images": [
     "https://static.wixstatic.com/media/75d545_9020c786c6964fc6b999766812ecf816~mv2.jpeg"
   ],

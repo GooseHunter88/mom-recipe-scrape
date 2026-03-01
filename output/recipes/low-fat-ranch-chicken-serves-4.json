@@ -5,8 +5,14 @@
   "serves": "Serves 4",
   "category": "Main Dish",
   "date": "2022-03-03",
-  "ingredients": [],
-  "instructions": "",
+  "ingredients": [
+    "\u00bd cup light sour cream",
+    "2 cups corn flakes, crushed",
+    "6 tbsp ranch dressing seasoning",
+    "1 lb chicken filets",
+    "**Preheat oven to 350\u00ba**"
+  ],
+  "instructions": "Spray a baking sheet with cooking spray and set aside.\nPlace crushed corn flakes in a pie plate and toss with the ranch dressing.\nWith a pastry brush, put a thin layer of sour cream on both sides the filets, and press into the corn flake mixture on both sides. Place the chicken on the prepared baking sheet.\nSprinkle the remaining corn flakes evenly over the tops of the chicken breasts and bake for 30-35 minutes.",
   "images": [
     "https://static.wixstatic.com/media/75d545_e31bff11b12f4586ae36dff50e306b2e~mv2.png"
   ],

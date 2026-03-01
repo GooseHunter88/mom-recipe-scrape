@@ -5,8 +5,16 @@
   "serves": "",
   "category": "",
   "date": "2022-02-28",
-  "ingredients": [],
-  "instructions": "",
+  "ingredients": [
+    "1 cup light mayonnaise",
+    "2 tbsp Sriracha",
+    "1 tsp smoked paprika",
+    "1 clove garlic, finely minced",
+    "zest of 1 lime",
+    "juice of 1 lime",
+    "pinch of salt"
+  ],
+  "instructions": "In a small bowl combine all the ingredients and stir to combine.\nServe with burgers, fish tacos and French fries.",
   "images": [
     "https://static.wixstatic.com/media/75d545_f5e8b70631824afa8092fe7d83206804~mv2.jpg"
   ],
