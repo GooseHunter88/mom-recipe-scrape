@@ -1,0 +1,463 @@
+{
+  "white-cheddar-mashed-potatoes": [
+    "potato",
+    "side-dishes"
+  ],
+  "mashed-red-potatoes-serves-6": [
+    "potato"
+  ],
+  "potato-green-bean-casserole-serves-12": [
+    "potato"
+  ],
+  "simple-roasted-red-potatoes-serves-8": [
+    "potato"
+  ],
+  "potatoes-for-a-crowd": [
+    "potato"
+  ],
+  "sweet-potato-casserole-serves-8": [
+    "potato",
+    "side-dishes"
+  ],
+  "lemon-olive-oil-roasted-potatoes-serves-6": [
+    "potato"
+  ],
+  "twice-baked-potatoes-serves-8": [
+    "potato",
+    "side-dishes"
+  ],
+  "roasted-new-potatoes-serves-6": [
+    "potato"
+  ],
+  "lamb-and-rice-stuffed-cabbage-with-tomato-sauce": [
+    "lamb"
+  ],
+  "no-knead-artisan-bread": [
+    "breads"
+  ],
+  "sausage-apple-stuffing": [
+    "breads"
+  ],
+  "low-fat-banana-bread": [
+    "breads",
+    "breakfast"
+  ],
+  "chocolate-chip-banana-bread": [
+    "breads"
+  ],
+  "irish-soda-bread": [
+    "breads"
+  ],
+  "nutella-swirl-pound-cake": [
+    "breads",
+    "breakfast"
+  ],
+  "apple-and-herb-stuffing-makes-2-qts": [
+    "breads"
+  ],
+  "hot-chocolate-tiramisu-serves-12": [
+    "desserts"
+  ],
+  "chocolate-fudge-bundt-cake": [
+    "desserts"
+  ],
+  "margarita-cheesecake-mousse-makes-10-cup-servings": [
+    "desserts"
+  ],
+  "lemon-lime-white-chocolate-chip-cookies-makes-4-dozen": [
+    "desserts"
+  ],
+  "key-lime-cookies-makes-4-dozen-cookies": [
+    "desserts"
+  ],
+  "caramel-apple-brownies": [
+    "desserts"
+  ],
+  "white-chocolate-raspberry-cheesecake": [
+    "desserts"
+  ],
+  "chocolate-cream-pie": [
+    "desserts"
+  ],
+  "pecan-pie": [
+    "desserts"
+  ],
+  "summer-beer-serves-4": [
+    "beverage"
+  ],
+  "white-sangria": [
+    "beverage"
+  ],
+  "slow-burn-martini-makes-1-martini": [
+    "beverage"
+  ],
+  "red-sangria": [
+    "beverage"
+  ],
+  "cherry-blossom-martini": [
+    "beverage"
+  ],
+  "cosmopolitan-punch": [
+    "beverage"
+  ],
+  "sangria-makes-1-gallon": [
+    "beverage"
+  ],
+  "hot-dirty-martini-makes-1-martini": [
+    "beverage"
+  ],
+  "copycat-olive-garden-sangria-1-gallon": [
+    "beverage"
+  ],
+  "chicken-and-stuffing-casserole-serves-8": [
+    "poultry",
+    "casserole",
+    "main-dish"
+  ],
+  "chicken-pot-pie-serves-6": [
+    "poultry",
+    "casserole",
+    "main-dish"
+  ],
+  "chicken-in-a-packet-serves-4": [
+    "poultry"
+  ],
+  "pasta-ground-turkey-bake-serves-8-10": [
+    "poultry",
+    "casserole",
+    "main-dish",
+    "pasta-rice"
+  ],
+  "chicken-apple-sausage-pasta-serves-8": [
+    "poultry",
+    "casserole",
+    "main-dish",
+    "pasta-rice"
+  ],
+  "dorito-chicken-casserole-serves-8": [
+    "poultry"
+  ],
+  "a-slow-cooker-thanksgiving-serves-6": [
+    "poultry",
+    "crockpot"
+  ],
+  "low-fat-ranch-chicken-serves-4": [
+    "poultry"
+  ],
+  "rosemary-buttermilk-ranch-chicken-kabobs-8-10-kabobs": [
+    "poultry"
+  ],
+  "mexican-chicken-chowder-serves-6": [
+    "soup",
+    "crockpot"
+  ],
+  "panera-copycat-broth-bowl-serves-2": [
+    "soup"
+  ],
+  "grilled-turkey-mozzarella-sandwiches-serves-4": [
+    "soup"
+  ],
+  "butternut-squash-soup-with-crispy-pancetta-serves-6": [
+    "soup"
+  ],
+  "zuppa-toscana": [
+    "soup"
+  ],
+  "low-carb-zuppa-toscana-soup-serves-6": [
+    "soup"
+  ],
+  "sausage-white-bean-soup-serves-8": [
+    "soup"
+  ],
+  "lobster-bisque-serves-8": [
+    "soup"
+  ],
+  "tomato-basil-crab-bisque-serves-6": [
+    "soup"
+  ],
+  "chicken-noodle-casserole-with-fried-onion-topping": [
+    "casserole"
+  ],
+  "easy-stuffed-peppers-serves-8": [
+    "casserole",
+    "beef",
+    "main-dish"
+  ],
+  "orzo-taco-casserole-serves-6-8": [
+    "casserole"
+  ],
+  "chicken-noodle-casserole-serves-8-10": [
+    "casserole"
+  ],
+  "low-fat-eggplant-rollatini-serves-4": [
+    "casserole",
+    "vegetable"
+  ],
+  "country-apple-dumplings-makes-16": [
+    "fruit"
+  ],
+  "saut%C3%A9ed-apples-serves-8": [
+    "fruit"
+  ],
+  "jellied-cranberry-sauce-makes-2-cups": [
+    "fruit",
+    "side-dishes",
+    "gravy-sauce-dressing"
+  ],
+  "orzo-pasta-salad-serves-8-10": [
+    "salads",
+    "pasta-rice"
+  ],
+  "arugula-pear-quinoa-salad-serves-4": [
+    "salads"
+  ],
+  "arugula-salad-with-manchego-pear-and-glazed-pecans": [
+    "salads"
+  ],
+  "farro-tomato-salad-serves-4": [
+    "salads"
+  ],
+  "mixed-greens-and-apple-salad-serves-4": [
+    "salads"
+  ],
+  "farfalle-vegetable-salad-serves-6": [
+    "salads",
+    "pasta-rice"
+  ],
+  "crab-salad-serves-4-1": [
+    "salads",
+    "seafood"
+  ],
+  "dried-cherry-farro-salad-serves-6": [
+    "salads"
+  ],
+  "pearl-couscous-and-arugula-salad-serves-6-8": [
+    "salads"
+  ],
+  "summer-corn-salad-serves-8": [
+    "side-dishes"
+  ],
+  "white-cheddar-havarti-mac-n-cheese": [
+    "side-dishes",
+    "pasta-rice"
+  ],
+  "turnip-fries": [
+    "side-dishes",
+    "vegetable"
+  ],
+  "zucchini-fritters-makes-8": [
+    "side-dishes",
+    "vegetable"
+  ],
+  "fried-green-tomatoes-serves-8": [
+    "side-dishes",
+    "vegetable"
+  ],
+  "complete-breakfast-serves-6-8": [
+    "eggs"
+  ],
+  "quiche-lorraine": [
+    "eggs",
+    "breakfast"
+  ],
+  "crustless-spinach-quiche-serves-6": [
+    "eggs"
+  ],
+  "bacon-cheese-frittata-serves-6": [
+    "eggs"
+  ],
+  "spicy-beef-mushrooms-in-a-pita-serves-4": [
+    "beef"
+  ],
+  "pot-roast-dinner-serves-6-7": [
+    "beef",
+    "crockpot"
+  ],
+  "mexican-casserole-serves-12": [
+    "beef"
+  ],
+  "perfect-burgers-serves-4": [
+    "beef"
+  ],
+  "mexican-meatloaf-serves-8": [
+    "beef"
+  ],
+  "meatloaf-wellington": [
+    "beef"
+  ],
+  "beef-black-bean-and-corn-tacos": [
+    "beef"
+  ],
+  "low-carb-bbq-meatballs-makes-12": [
+    "beef"
+  ],
+  "homemade-vanilla-extract": [
+    "gravy-sauce-dressing"
+  ],
+  "tuscan-herb-butter": [
+    "gravy-sauce-dressing"
+  ],
+  "tgi-friday-copycat-jack-daniels-sauce": [
+    "gravy-sauce-dressing"
+  ],
+  "everything-bagel-seasoning": [
+    "gravy-sauce-dressing"
+  ],
+  "white-wine-turkey-gravy": [
+    "gravy-sauce-dressing"
+  ],
+  "make-ahead-white-wine-gravy-makes-about-4-cups": [
+    "gravy-sauce-dressing"
+  ],
+  "sweet-soy-glaze": [
+    "gravy-sauce-dressing"
+  ],
+  "honey-glaze-for-roast-turkey": [
+    "gravy-sauce-dressing"
+  ],
+  "oven-baked-baby-back-ribs-serves-6": [
+    "pork"
+  ],
+  "spaghetti-squash-with-sweet-sausage-peppers-serves-6": [
+    "pork"
+  ],
+  "shrimp-sausage-skewers-serves-4-2-skewers-each": [
+    "pork"
+  ],
+  "escarole-with-italian-sausage-white-beans": [
+    "pork"
+  ],
+  "italian-sausage-peppers-onions": [
+    "pork"
+  ],
+  "orecchiette-sausage-and-arugula-serves-3": [
+    "pork"
+  ],
+  "penne-sausage-kale-in-light-cream-sauce-serves-5": [
+    "pork"
+  ],
+  "hoisin-pork-loin-serves-4": [
+    "pork"
+  ],
+  "mexican-pork-bowls-serves-4": [
+    "pork"
+  ],
+  "mediterranean-shrimp-and-vegetables-serves-8": [
+    "seafood",
+    "main-dish"
+  ],
+  "wasabi-panko-salmon-with-orange-ginger-sauce-serves-4-recipe-by-emeril-lagasse": [
+    "seafood"
+  ],
+  "panko-shrimp-with-aioli-serves-4": [
+    "seafood"
+  ],
+  "sun-dried-tomato-spinach-and-salmon-serves-4": [
+    "seafood",
+    "main-dish"
+  ],
+  "tuscan-spinach-salmon": [
+    "seafood"
+  ],
+  "everything-bagel-salmon-serves-4": [
+    "seafood"
+  ],
+  "light-shrimp-scampi-serves-4": [
+    "seafood",
+    "main-dish",
+    "pasta-rice"
+  ],
+  "seafood-casserole-ii-serves-8": [
+    "seafood"
+  ],
+  "old-fashioned-pancakes-serves-12": [
+    "breakfast"
+  ],
+  "french-toast": [
+    "breakfast"
+  ],
+  "egg-casserole-serves-6": [
+    "breakfast"
+  ],
+  "christmas-french-toast-casserole-serves-8-10": [
+    "breakfast"
+  ],
+  "cinnamon-roll-french-toast-breakfast-serves-8-10": [
+    "breakfast"
+  ],
+  "pancakes-makes-18-4-pancakes": [
+    "breakfast"
+  ],
+  "everything-cashews-ii": [
+    "appetizers"
+  ],
+  "hot-crab-cups-makes-30": [
+    "appetizers"
+  ],
+  "brie-pomegranate-phyllo-cups-makes-30": [
+    "appetizers"
+  ],
+  "mascarpone-fig-appetizers-makes-24": [
+    "appetizers"
+  ],
+  "reuben-cups-makes-24": [
+    "appetizers"
+  ],
+  "big-mac-dip": [
+    "appetizers"
+  ],
+  "vegetable-shooters": [
+    "appetizers"
+  ],
+  "pull-apart-pizza-bread": [
+    "appetizers"
+  ],
+  "bacon-tomato-cups-makes-30-cups": [
+    "appetizers"
+  ],
+  "chicken-pot-pie-i": [
+    "main-dish"
+  ],
+  "tomato-pasta-toss-serves-6": [
+    "pasta-rice"
+  ],
+  "tortellini-pest-salad": [
+    "pasta-rice"
+  ],
+  "summer-pasta-serves-6": [
+    "pasta-rice"
+  ],
+  "snow-peas-and-water-chestnuts-serves-4": [
+    "vegetable"
+  ],
+  "stuffed-tomatoes-serves-4": [
+    "vegetable"
+  ],
+  "spaghetti-squash-gratin-serves-8": [
+    "vegetable"
+  ],
+  "shredded-parmesan-brussels-sprouts-serves-6": [
+    "vegetable"
+  ],
+  "old-fashioned-corn-casserole-serves-6-8": [
+    "vegetable"
+  ],
+  "crock-pot-cheesy-corn-and-peppers-8-servings": [
+    "crockpot"
+  ],
+  "corned-beef-and-cabbage-with-beer-serves-6": [
+    "crockpot"
+  ],
+  "cajun-pot-roast-with-corn-and-potatoes-serves-6-10": [
+    "crockpot"
+  ],
+  "crockpot-sausage-chili-serves-8": [
+    "crockpot"
+  ],
+  "crock-pot-barbecue-chicken-serves-4": [
+    "crockpot"
+  ],
+  "crock-pot-tortilla-soup": [
+    "crockpot"
+  ]
+}

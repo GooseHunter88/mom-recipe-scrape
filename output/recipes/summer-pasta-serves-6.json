@@ -1,0 +1,23 @@
+{
+  "url": "https://www.mymomshomecooking.com/post/summer-pasta-serves-6",
+  "slug": "summer-pasta-serves-6",
+  "title": "Summer Pasta",
+  "serves": "Serves 6",
+  "category": "Pasta, Rice & Beans",
+  "date": "2022-02-28",
+  "ingredients": [
+    "1 16oz package of linguini",
+    "6 plum tomatoes, chopped",
+    "1lb shredded mozzarella cheese",
+    "\u00bd tsp garlic salt",
+    "ground black pepper to taste",
+    "1/3 cup chopped fresh basil",
+    "6 cloves garlic, minced",
+    "\u00bd cup extra virgin olive oil"
+  ],
+  "instructions": "Combine the tomatoes, cheese, basil, garlic, olive oil, garlic salt and black pepper in a large bowl.\nMeanwhile cook the pasta according to the package directions. Drain and transfer to a large serving bowl and toss with the tomato mixture.\nServe with fish or chicken and warm crusty bread.",
+  "images": [
+    "https://static.wixstatic.com/media/75d545_e31bff11b12f4586ae36dff50e306b2e~mv2.png"
+  ],
+  "local_image": "/Users/remibarton/Documents/mom-recipe-scrape/output/images/summer-pasta-serves-6.png"
+}

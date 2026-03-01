@@ -1,0 +1,2272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mom's Home Cooking — Recipes from Southampton</title>
+  <meta name="description" content="Family recipes from Mom's kitchen in Southampton, NY. The dishes that bring us back to the table.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍳</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sand-white: #F7F3EE;
+      --ocean-slate: #2A3642;
+      --sea-glass: #5B8A9A;
+      --driftwood: #D4A574;
+      --light-sand: #EDE7DD;
+      --weathered: #8B7D6B;
+      --warm-sand: #E8E0D4;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--sand-white);
+      color: var(--ocean-slate);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* --- NAV --- */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 80px;
+      background: var(--sand-white);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+    }
+    nav.scrolled { border-bottom-color: var(--warm-sand); }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--ocean-slate);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+      cursor: pointer;
+    }
+    .nav-links { display: flex; align-items: center; gap: 36px; }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--weathered);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--ocean-slate); font-weight: 500; }
+    .nav-actions { display: flex; gap: 12px; align-items: center; }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--ocean-slate); margin: 5px 0; transition: all 0.3s; border-radius: 2px; }
+    .hamburger.open span:first-child { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:last-child { transform: rotate(-45deg) translate(5px, -5px); }
+    .btn-outline {
+      padding: 10px 20px;
+      border: 1.5px solid var(--driftwood);
+      border-radius: 100px;
+      background: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ocean-slate);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-outline:hover { background: var(--driftwood); color: #fff; }
+    .btn-primary {
+      padding: 10px 24px;
+      background: var(--sea-glass);
+      border: none;
+      border-radius: 100px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--sand-white);
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.85; }
+    .btn-dark {
+      padding: 14px 32px;
+      background: var(--ocean-slate);
+      border: none;
+      border-radius: 100px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--sand-white);
+      cursor: pointer;
+      transition: opacity 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-dark:hover { opacity: 0.85; }
+
+    /* --- HERO --- */
+    .hero {
+      display: flex;
+      align-items: center;
+      padding: 64px 80px 72px;
+      gap: 64px;
+    }
+    .hero-text { flex: 1; }
+    .hero-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--sea-glass);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 62px;
+      font-weight: 700;
+      color: var(--ocean-slate);
+      letter-spacing: -0.03em;
+      line-height: 1.12;
+      margin-bottom: 24px;
+    }
+    .hero-sub {
+      font-size: 17px;
+      color: var(--weathered);
+      line-height: 1.65;
+      max-width: 480px;
+      margin-bottom: 32px;
+    }
+    .hero-actions { display: flex; gap: 16px; }
+    .hero-image {
+      width: 560px;
+      height: 380px;
+      flex-shrink: 0;
+      border-radius: 20px;
+      overflow: hidden;
+      background: var(--warm-sand);
+    }
+    .hero-image img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+
+    /* --- QUOTE STRIP --- */
+    .quote-strip {
+      padding: 40px 80px;
+      background: var(--light-sand);
+      text-align: center;
+    }
+    .quote-strip p {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--sea-glass);
+    }
+
+    /* --- SECTIONS --- */
+    .section {
+      padding: 72px 80px;
+    }
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 36px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--ocean-slate);
+      letter-spacing: -0.02em;
+    }
+    .section-subtitle {
+      font-size: 15px;
+      color: var(--weathered);
+      margin-top: 8px;
+    }
+    .section-link {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--sea-glass);
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .section-link:hover { text-decoration: underline; }
+
+    /* --- CATEGORY CARDS --- */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .cat-card {
+      position: relative;
+      height: 180px;
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .cat-card:hover { transform: scale(1.02); }
+    .cat-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+    .cat-card:hover img { transform: scale(1.05); }
+    .cat-card-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 16px 20px;
+      background: linear-gradient(transparent, rgba(42,54,66,0.8));
+    }
+    .cat-card-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--sand-white);
+    }
+    .cat-card-count {
+      font-size: 12px;
+      color: rgba(247,243,238,0.7);
+    }
+
+    /* --- RECIPE GRID --- */
+    .recipe-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .recipe-card {
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .recipe-card:hover { transform: translateY(-4px); }
+    .recipe-card-img {
+      width: 100%;
+      height: 260px;
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--warm-sand);
+      margin-bottom: 14px;
+    }
+    .recipe-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+    .recipe-card:hover .recipe-card-img img { transform: scale(1.05); }
+    .recipe-card-meta {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--sea-glass);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .recipe-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 21px;
+      font-weight: 600;
+      color: var(--ocean-slate);
+      line-height: 1.3;
+      margin-bottom: 6px;
+    }
+    .recipe-card-desc {
+      font-size: 14px;
+      color: var(--weathered);
+      line-height: 1.5;
+    }
+
+    /* --- ABOUT SECTION --- */
+    .about {
+      display: flex;
+      align-items: center;
+      padding: 80px;
+      background: var(--light-sand);
+      gap: 64px;
+    }
+    .about-text { flex: 1; }
+    .about-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--sea-glass);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .about-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--ocean-slate);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+    .about-body {
+      font-size: 16px;
+      color: var(--weathered);
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+    .about-image {
+      width: 460px;
+      height: 420px;
+      flex-shrink: 0;
+      border-radius: 20px;
+      overflow: hidden;
+      background: var(--driftwood);
+    }
+    .about-image img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* --- NEWSLETTER --- */
+    .newsletter {
+      padding: 80px;
+    }
+    .newsletter-inner {
+      padding: 64px 80px;
+      background: var(--ocean-slate);
+      border-radius: 20px;
+      text-align: center;
+    }
+    .newsletter-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--sand-white);
+      margin-bottom: 16px;
+    }
+    .newsletter-sub {
+      font-size: 16px;
+      color: rgba(247,243,238,0.6);
+      max-width: 420px;
+      margin: 0 auto 32px;
+      line-height: 1.5;
+    }
+    .newsletter-form {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+    .newsletter-input {
+      padding: 14px 24px;
+      background: rgba(247,243,238,0.08);
+      border: 1px solid rgba(247,243,238,0.15);
+      border-radius: 100px;
+      width: 300px;
+      color: var(--sand-white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      outline: none;
+    }
+    .newsletter-input::placeholder { color: rgba(247,243,238,0.35); }
+    .newsletter-input:focus { border-color: var(--sea-glass); }
+
+    /* --- FOOTER --- */
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 36px 80px;
+      border-top: 1px solid var(--warm-sand);
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ocean-slate);
+    }
+    .footer-links { display: flex; gap: 28px; }
+    .footer-links a {
+      font-size: 13px;
+      color: var(--weathered);
+      text-decoration: none;
+    }
+    .footer-links a:hover { color: var(--ocean-slate); }
+    .footer-tagline {
+      font-size: 12px;
+      color: #B5A898;
+    }
+
+    /* --- RECIPE DETAIL MODAL --- */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(42,54,66,0.5);
+      z-index: 200;
+      overflow-y: auto;
+      padding: 40px 80px;
+    }
+    .modal-overlay.open { display: flex; justify-content: center; }
+    .modal {
+      background: var(--sand-white);
+      border-radius: 24px;
+      max-width: 860px;
+      width: 100%;
+      overflow: hidden;
+      margin: auto;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 20px; right: 20px;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.9);
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      color: var(--ocean-slate);
+    }
+    .modal-image {
+      width: 100%;
+      height: 400px;
+      background: var(--warm-sand);
+    }
+    .modal-image img { width: 100%; height: 100%; object-fit: cover; }
+    .modal-image.no-image { display: none; }
+    .modal-body { padding: 40px 48px 48px; }
+
+    /* --- Modal header zone --- */
+    .modal-header-zone {
+      margin-bottom: 32px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--warm-sand);
+    }
+    .modal-cat {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--sea-glass);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .modal-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--ocean-slate);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .modal-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .modal-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      color: var(--weathered);
+    }
+    .modal-meta-item svg { width: 18px; height: 18px; fill: var(--driftwood); flex-shrink: 0; }
+    .modal-meta-item strong { color: var(--ocean-slate); font-weight: 600; }
+
+    /* --- Two-column layout: ingredients + instructions side by side --- */
+    .modal-columns {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 40px;
+    }
+
+    /* --- Ingredients column --- */
+    .modal-ing-col {}
+    .modal-section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--ocean-slate);
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
+    }
+    .modal-ing-count {
+      font-size: 12px;
+      color: var(--weathered);
+      font-weight: 400;
+      margin-left: 6px;
+      letter-spacing: 0;
+    }
+    .modal-ingredients {
+      list-style: none;
+    }
+    .modal-ingredients li {
+      padding: 8px 0;
+      font-size: 14px;
+      color: var(--ocean-slate);
+      line-height: 1.45;
+      border-bottom: 1px solid var(--warm-sand);
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .modal-ingredients li:last-child { border-bottom: none; }
+    .modal-ingredients li::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--driftwood);
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+
+    /* --- Instructions column --- */
+    .modal-inst-col {}
+    .modal-instructions {
+      counter-reset: step;
+    }
+    .modal-step {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 20px;
+      align-items: flex-start;
+    }
+    .modal-step:last-child { margin-bottom: 0; }
+    .modal-step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--light-sand);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--sea-glass);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .modal-step-text {
+      font-size: 15px;
+      color: var(--ocean-slate);
+      line-height: 1.7;
+      flex: 1;
+    }
+    .modal-step-text strong {
+      color: var(--ocean-slate);
+      font-weight: 600;
+    }
+    .modal-inst-note {
+      margin-top: 20px;
+      padding: 16px 20px;
+      background: var(--light-sand);
+      border-radius: 12px;
+      font-size: 14px;
+      color: var(--weathered);
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    /* --- Source link --- */
+    .modal-source {
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid var(--warm-sand);
+      font-size: 12px;
+      color: var(--driftwood);
+      font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+      .modal-columns { grid-template-columns: 1fr; gap: 28px; }
+      .modal-body { padding: 28px 24px 32px; }
+      .modal-title { font-size: 28px; }
+    }
+
+    /* --- SEARCH OVERLAY --- */
+    .search-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(42,54,66,0.6);
+      z-index: 300;
+      padding: 120px 80px 40px;
+    }
+    .search-overlay.open { display: block; }
+    .search-box {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .search-input {
+      width: 100%;
+      padding: 20px 32px;
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 400;
+      border: none;
+      border-radius: 16px;
+      outline: none;
+      background: var(--sand-white);
+      color: var(--ocean-slate);
+    }
+    .search-input::placeholder { color: var(--driftwood); }
+    .search-results {
+      max-width: 680px;
+      margin: 16px auto 0;
+      max-height: 60vh;
+      overflow-y: auto;
+      border-radius: 16px;
+      background: var(--sand-white);
+    }
+    .search-result {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 24px;
+      cursor: pointer;
+      border-bottom: 1px solid var(--warm-sand);
+      transition: background 0.15s;
+    }
+    .search-result:hover { background: var(--light-sand); }
+    .search-result-img {
+      width: 56px; height: 56px;
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--warm-sand);
+      flex-shrink: 0;
+    }
+    .search-result-img img { width: 100%; height: 100%; object-fit: cover; }
+    .search-result-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--ocean-slate);
+    }
+    .search-result-cat {
+      font-size: 12px;
+      color: var(--sea-glass);
+      margin-top: 2px;
+    }
+    .search-empty {
+      padding: 32px;
+      text-align: center;
+      color: var(--weathered);
+      font-size: 15px;
+    }
+
+    /* --- ALL RECIPES PAGE --- */
+    .all-recipes-page { display: none; }
+    .all-recipes-page.visible { display: block; }
+    .homepage.hidden { display: none; }
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 40px;
+    }
+    .filter-pill {
+      padding: 10px 22px;
+      border-radius: 100px;
+      border: 1.5px solid var(--warm-sand);
+      background: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ocean-slate);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-pill:hover { border-color: var(--driftwood); }
+    .filter-pill.active {
+      background: var(--sea-glass);
+      border-color: var(--sea-glass);
+      color: #fff;
+    }
+    .recipes-count {
+      font-size: 14px;
+      color: var(--weathered);
+      margin-bottom: 24px;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--sea-glass);
+      text-decoration: none;
+      margin-bottom: 24px;
+      cursor: pointer;
+    }
+    .back-link:hover { text-decoration: underline; }
+
+    /* --- KITCHEN HELPER PANEL --- */
+    .helper-fab {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--driftwood);
+      border: none;
+      cursor: pointer;
+      z-index: 150;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(42,54,66,0.2);
+      transition: transform 0.2s, background 0.2s;
+    }
+    .helper-fab:hover { transform: scale(1.08); background: #c9995e; }
+    .helper-fab svg { width: 26px; height: 26px; fill: #fff; }
+
+    .helper-panel {
+      position: fixed;
+      top: 0; right: -480px;
+      width: 480px;
+      height: 100vh;
+      background: var(--sand-white);
+      z-index: 250;
+      overflow-y: auto;
+      transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: -8px 0 40px rgba(42,54,66,0.15);
+    }
+    .helper-panel.open { right: 0; }
+    .helper-backdrop {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(42,54,66,0.3);
+      z-index: 240;
+    }
+    .helper-backdrop.open { display: block; }
+
+    .helper-header {
+      position: sticky;
+      top: 0;
+      background: var(--sand-white);
+      padding: 28px 32px 20px;
+      border-bottom: 1px solid var(--warm-sand);
+      z-index: 2;
+    }
+    .helper-header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .helper-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--ocean-slate);
+    }
+    .helper-close {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      border: none;
+      background: var(--light-sand);
+      cursor: pointer;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ocean-slate);
+    }
+    .helper-subtitle {
+      font-size: 14px;
+      color: var(--weathered);
+      font-style: italic;
+    }
+
+    .helper-tabs {
+      display: flex;
+      gap: 4px;
+      padding: 16px 32px 0;
+      background: var(--sand-white);
+      position: sticky;
+      top: 85px;
+      z-index: 2;
+    }
+    .helper-tab {
+      padding: 8px 16px;
+      border-radius: 8px 8px 0 0;
+      border: none;
+      background: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--weathered);
+      cursor: pointer;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: all 0.2s;
+      border-bottom: 2px solid transparent;
+    }
+    .helper-tab:hover { color: var(--ocean-slate); }
+    .helper-tab.active {
+      color: var(--sea-glass);
+      border-bottom-color: var(--sea-glass);
+      background: var(--light-sand);
+    }
+
+    .helper-content {
+      padding: 24px 32px 40px;
+    }
+    .helper-section { display: none; }
+    .helper-section.active { display: block; }
+
+    .helper-section h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--ocean-slate);
+      margin: 28px 0 14px;
+    }
+    .helper-section h3:first-child { margin-top: 0; }
+
+    .helper-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .helper-table th {
+      text-align: left;
+      font-weight: 600;
+      color: var(--ocean-slate);
+      padding: 8px 12px;
+      background: var(--light-sand);
+      border-radius: 6px;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .helper-table td {
+      padding: 9px 12px;
+      border-bottom: 1px solid var(--warm-sand);
+      color: var(--ocean-slate);
+    }
+    .helper-table tr:last-child td { border-bottom: none; }
+
+    .helper-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 9px 0;
+      border-bottom: 1px solid var(--warm-sand);
+      font-size: 14px;
+    }
+    .helper-row:last-child { border-bottom: none; }
+    .helper-row-label { color: var(--weathered); }
+    .helper-row-value { font-weight: 500; color: var(--ocean-slate); }
+
+    .helper-tip {
+      background: var(--light-sand);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+    }
+    .helper-tip-title {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--ocean-slate);
+      margin-bottom: 6px;
+    }
+    .helper-tip-body {
+      font-size: 13px;
+      color: var(--weathered);
+      line-height: 1.6;
+    }
+    .helper-tip-body ol {
+      padding-left: 18px;
+      margin: 4px 0 0;
+    }
+    .helper-tip-body li {
+      margin-bottom: 4px;
+    }
+
+    .helper-rule {
+      text-align: center;
+      padding: 16px 20px;
+      background: var(--sea-glass);
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+    .helper-rule p {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      font-style: italic;
+    }
+
+    @media (max-width: 640px) {
+      .helper-panel { width: 100%; right: -100%; }
+      .helper-fab { bottom: 20px; right: 20px; width: 52px; height: 52px; }
+    }
+
+    /* --- WHAT'S FOR DINNER — horizontal inline --- */
+    .dinner-section {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      padding: 64px 80px;
+      background: var(--light-sand);
+    }
+    .dinner-text { flex: 1; }
+    .dinner-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--sea-glass);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .dinner-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 38px;
+      font-weight: 700;
+      color: var(--ocean-slate);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+    .dinner-sub {
+      font-size: 16px;
+      color: var(--weathered);
+      line-height: 1.6;
+      margin-bottom: 28px;
+      max-width: 400px;
+    }
+    .dinner-spin-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      background: var(--ocean-slate);
+      border: none;
+      border-radius: 100px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      cursor: pointer;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+    .dinner-spin-btn:hover { opacity: 0.85; transform: scale(1.03); }
+    .dinner-spin-btn.spinning { animation: shake 0.4s ease; }
+    @keyframes shake {
+      0%, 100% { transform: rotate(0); }
+      25% { transform: rotate(-5deg); }
+      75% { transform: rotate(5deg); }
+    }
+    .dinner-card-wrap { width: 380px; flex-shrink: 0; }
+    .dinner-card {
+      border-radius: 18px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 8px 32px rgba(42,54,66,0.1);
+      transition: transform 0.3s;
+    }
+    .dinner-card:hover { transform: translateY(-4px); }
+    .dinner-card-img { width: 100%; height: 220px; background: var(--warm-sand); overflow: hidden; cursor: pointer; }
+    .dinner-card-img img { width: 100%; height: 100%; object-fit: cover; }
+    .dinner-card-body { padding: 20px; cursor: pointer; }
+    .dinner-card-cat { font-size: 11px; font-weight: 500; color: var(--sea-glass); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 4px; }
+    .dinner-card-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--ocean-slate); margin-bottom: 4px; }
+    .dinner-card-desc { font-size: 13px; color: var(--weathered); line-height: 1.5; }
+    .dinner-empty {
+      padding: 60px 24px;
+      text-align: center;
+      color: var(--driftwood);
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-style: italic;
+    }
+
+    @media (max-width: 1024px) {
+      .dinner-section { flex-direction: column; }
+      .dinner-card-wrap { width: 100%; max-width: 420px; }
+    }
+
+    /* --- WHAT'S IN MY FRIDGE — slide-up drawer --- */
+    .fridge-fab {
+      position: fixed;
+      bottom: 32px;
+      left: 32px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--sea-glass);
+      border: none;
+      cursor: pointer;
+      z-index: 150;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(42,54,66,0.2);
+      transition: transform 0.2s, background 0.2s;
+    }
+    .fridge-fab:hover { transform: scale(1.08); background: #4e7a89; }
+    .fridge-fab svg { width: 26px; height: 26px; fill: #fff; }
+
+    .fridge-drawer {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: var(--sand-white);
+      z-index: 260;
+      border-radius: 24px 24px 0 0;
+      box-shadow: 0 -8px 40px rgba(42,54,66,0.15);
+      transform: translateY(100%);
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      max-height: 85vh;
+      overflow-y: auto;
+    }
+    .fridge-drawer.open { transform: translateY(0); }
+    .fridge-backdrop {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(42,54,66,0.3);
+      z-index: 255;
+    }
+    .fridge-backdrop.open { display: block; }
+
+    .fridge-drawer-header {
+      position: sticky;
+      top: 0;
+      background: var(--sand-white);
+      padding: 24px 40px 20px;
+      border-bottom: 1px solid var(--warm-sand);
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .fridge-drawer-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--ocean-slate);
+    }
+    .fridge-drawer-sub {
+      font-size: 14px;
+      color: var(--weathered);
+      font-style: italic;
+      margin-top: 2px;
+    }
+    .fridge-close {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      border: none;
+      background: var(--light-sand);
+      cursor: pointer;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ocean-slate);
+      flex-shrink: 0;
+    }
+    .fridge-drawer-body {
+      padding: 24px 40px 40px;
+    }
+    .fridge-input-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .fridge-input {
+      flex: 1;
+      padding: 14px 24px;
+      border: 1.5px solid var(--warm-sand);
+      border-radius: 100px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      color: var(--ocean-slate);
+      background: #fff;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .fridge-input:focus { border-color: var(--sea-glass); }
+    .fridge-input::placeholder { color: var(--driftwood); }
+    .fridge-add-btn {
+      padding: 14px 28px;
+      background: var(--sea-glass);
+      border: none;
+      border-radius: 100px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .fridge-add-btn:hover { background: #4e7a89; }
+    .fridge-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+      min-height: 20px;
+    }
+    .fridge-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background: var(--light-sand);
+      border-radius: 100px;
+      font-size: 14px;
+      color: var(--ocean-slate);
+      font-weight: 500;
+    }
+    .fridge-tag-x {
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      border: none;
+      background: var(--warm-sand);
+      cursor: pointer;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--weathered);
+    }
+    .fridge-tag-x:hover { background: var(--driftwood); color: #fff; }
+    .fridge-results-label {
+      font-size: 14px;
+      color: var(--weathered);
+      margin-bottom: 20px;
+    }
+    .fridge-results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .fridge-match-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      background: var(--sea-glass);
+      color: #fff;
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 600;
+      margin-left: 8px;
+      letter-spacing: 0.04em;
+    }
+    .fridge-match-low { background: var(--driftwood); }
+
+    @media (max-width: 640px) {
+      .fridge-fab { bottom: 20px; left: 20px; width: 52px; height: 52px; }
+      .fridge-drawer-header, .fridge-drawer-body { padding-left: 20px; padding-right: 20px; }
+    }
+
+    /* --- MODAL ACTIONS (print/share) --- */
+    .modal-actions {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+    .modal-action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 18px;
+      border-radius: 100px;
+      border: 1.5px solid var(--warm-sand);
+      background: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ocean-slate);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .modal-action-btn:hover { border-color: var(--sea-glass); color: var(--sea-glass); }
+    .modal-action-btn svg { width: 16px; height: 16px; fill: currentColor; }
+    .share-toast {
+      position: fixed;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: var(--ocean-slate);
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 500;
+      z-index: 999;
+      opacity: 0;
+      transition: all 0.3s;
+    }
+    .share-toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+    /* --- SORT BAR --- */
+    .sort-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .sort-bar label {
+      font-size: 13px;
+      color: var(--weathered);
+    }
+    .sort-select {
+      padding: 6px 12px;
+      border: 1px solid var(--warm-sand);
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: var(--ocean-slate);
+      background: #fff;
+      cursor: pointer;
+      outline: none;
+    }
+
+    /* --- SCROLL TO TOP --- */
+    .scroll-top {
+      position: fixed;
+      bottom: 100px;
+      right: 32px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--warm-sand);
+      border: none;
+      cursor: pointer;
+      z-index: 140;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: var(--ocean-slate);
+      transition: opacity 0.3s, transform 0.2s;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    }
+    .scroll-top.visible { display: flex; }
+    .scroll-top:hover { transform: scale(1.1); background: var(--driftwood); color: #fff; }
+
+    /* --- PRINT --- */
+    @media print {
+      /* Hide everything */
+      body > * { display: none !important; }
+      /* Show only the recipe modal */
+      #recipeModal { display: block !important; }
+      #recipeModal.open { display: block !important; }
+      .modal-overlay {
+        position: static !important;
+        padding: 0 !important;
+        background: none !important;
+        display: block !important;
+        overflow: visible !important;
+      }
+      .modal {
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+      }
+      .modal-close, .modal-actions { display: none !important; }
+      .modal-image { height: 200px !important; break-inside: avoid; }
+      .modal-image.no-image { display: none !important; }
+      .modal-image img { height: 200px !important; }
+      .modal-body { padding: 20px 0 !important; }
+      .modal-header-zone { padding-bottom: 16px !important; margin-bottom: 20px !important; }
+      .modal-title { font-size: 24px !important; }
+      .modal-columns { gap: 24px !important; }
+      .modal-section-title { font-size: 16px !important; }
+      .modal-ingredients li { padding: 4px 0 !important; font-size: 12px !important; }
+      .modal-step { margin-bottom: 10px !important; }
+      .modal-step-text { font-size: 12px !important; line-height: 1.5 !important; }
+      .modal-step-num { width: 22px !important; height: 22px !important; font-size: 11px !important; }
+      .modal-source { display: block !important; font-size: 10px !important; }
+      body { background: #fff !important; }
+      @page { margin: 0.5in; }
+    }
+
+    /* --- NO IMAGE PLACEHOLDER --- */
+    .no-img-placeholder {
+      width: 100%; height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--light-sand), var(--warm-sand));
+      color: var(--driftwood);
+    }
+    .no-img-placeholder svg { width: 48px; height: 48px; fill: var(--driftwood); opacity: 0.5; margin-bottom: 8px; }
+    .no-img-placeholder span { font-family: 'Playfair Display', serif; font-size: 14px; font-style: italic; opacity: 0.6; }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 1024px) {
+      nav, .hero, .section, .about, .newsletter, footer { padding-left: 40px; padding-right: 40px; }
+      .hero { flex-direction: column; }
+      .hero-title { font-size: 44px; }
+      .hero-image { width: 100%; height: 320px; }
+      .cat-grid { grid-template-columns: repeat(2, 1fr); }
+      .recipe-grid { grid-template-columns: repeat(2, 1fr); }
+      .about { flex-direction: column; }
+      .about-image { width: 100%; height: 300px; }
+    }
+    @media (max-width: 640px) {
+      nav, .hero, .section, .about, .newsletter, footer { padding-left: 20px; padding-right: 20px; }
+      nav { padding: 16px 20px; flex-wrap: wrap; }
+      .hamburger { display: block; }
+      .nav-links {
+        display: none; flex-direction: column; width: 100%;
+        gap: 0; padding: 12px 0 4px; order: 3;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 12px 0; border-top: 1px solid var(--warm-sand); font-size: 15px; }
+      .hero-title { font-size: 34px; }
+      .cat-grid { grid-template-columns: 1fr; }
+      .recipe-grid { grid-template-columns: 1fr; }
+      .section-title { font-size: 28px; }
+      .about-title { font-size: 30px; }
+      .modal-overlay { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a class="nav-logo" onclick="goHome()">Mom's Home Cooking</a>
+    <div class="nav-links">
+      <a onclick="goAllRecipes()" class="active">Recipes</a>
+      <a onclick="goAllRecipes()">Categories</a>
+      <a href="#about">Our Story</a>
+      <a onclick="toggleHelper()">Tips & Tricks</a>
+    </div>
+    <div class="nav-actions">
+      <button class="btn-outline" onclick="openSearch()">Search</button>
+      <button class="hamburger" onclick="toggleMobileMenu(this)" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HOMEPAGE -->
+  <main class="homepage" id="homepage">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-text">
+        <div class="hero-label">From Mom's Kitchen in Southampton</div>
+        <h1 class="hero-title">The Recipes That Bring Us Back to the Table</h1>
+        <p class="hero-sub">Four kids, a lifetime of Sunday dinners, and every dish made from the heart. These are the recipes that kept us coming home.</p>
+        <div class="hero-actions">
+          <button class="btn-dark" onclick="goAllRecipes()" id="heroBrowseBtn">Browse All Recipes</button>
+          <a href="#about" class="btn-outline">Meet Mom</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="img/family.jpg" alt="The whole family in Southampton" loading="eager">
+      </div>
+    </section>
+
+    <!-- QUOTE -->
+    <section class="quote-strip">
+      <p>"The secret ingredient is always love — and a little extra butter never hurts."</p>
+    </section>
+
+    <!-- CATEGORIES -->
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Browse by Category</h2>
+        </div>
+        <a class="section-link" onclick="goAllRecipes()" id="catCountLink">All Categories</a>
+      </div>
+      <div class="cat-grid" id="catGrid"></div>
+    </section>
+
+    <!-- FEATURED RECIPES -->
+    <section class="section" style="padding-top: 0;">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Family Favorites</h2>
+          <p class="section-subtitle">The dishes the kids always ask for when they come home</p>
+        </div>
+        <a class="section-link" onclick="goAllRecipes()">View All Recipes</a>
+      </div>
+      <div class="recipe-grid" id="featuredGrid"></div>
+    </section>
+
+    <!-- WHAT'S FOR DINNER — side-by-side -->
+    <section class="dinner-section" id="dinnerSection">
+      <div class="dinner-text">
+        <div class="dinner-label">Can't Decide?</div>
+        <h2 class="dinner-title">What's for Dinner Tonight?</h2>
+        <p class="dinner-sub">Close your eyes, hit the button, and let Mom pick something good for you.</p>
+        <button class="dinner-spin-btn" onclick="spinDinner()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+          Surprise Me
+        </button>
+      </div>
+      <div class="dinner-card-wrap">
+        <div class="dinner-card" id="dinnerCard">
+          <div class="dinner-empty">Hit the button and let Mom pick...</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+      <div class="about-text">
+        <div class="about-label">Our Story</div>
+        <h2 class="about-title">Every Recipe Has a Story. Every Meal Has a Memory.</h2>
+        <p class="about-body" id="aboutBody">Growing up in Southampton, our kitchen was the center of everything. Mom raised four kids on home-cooked meals — not because it was easy, but because gathering around the table was how our family stayed close. These recipes aren't just instructions. They're holidays, birthdays, lazy beach Sundays, and the smell of something wonderful when you walked through the door.</p>
+        <button class="btn-dark" onclick="goAllRecipes()">Explore All Recipes</button>
+      </div>
+      <div class="about-image" id="aboutImage"></div>
+    </section>
+
+    <!-- FAMILY CTA -->
+    <section class="newsletter" id="newsletter">
+      <div class="newsletter-inner">
+        <h2 class="newsletter-title">Share the Love</h2>
+        <p class="newsletter-sub">Know someone who'd love Mom's recipes? Send them this site — the more people cooking, the happier Mom is.</p>
+        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+          <button class="btn-primary" style="padding: 14px 28px;" onclick="shareSite()">Share This Site</button>
+          <button class="btn-outline" onclick="goAllRecipes()">Browse All Recipes</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ALL RECIPES PAGE -->
+  <div class="all-recipes-page" id="allRecipesPage">
+    <section class="section">
+      <a class="back-link" onclick="goHome()">&#8592; Back to Home</a>
+      <h2 class="section-title" id="allRecipesTitle">All Recipes</h2>
+      <div class="filter-bar" id="filterBar"></div>
+      <div class="sort-bar">
+        <label>Sort by:</label>
+        <select class="sort-select" id="sortSelect" onchange="renderAllRecipes()">
+          <option value="title">A to Z</option>
+          <option value="title-desc">Z to A</option>
+          <option value="newest">Newest First</option>
+          <option value="oldest">Oldest First</option>
+          <option value="category">Category</option>
+        </select>
+      </div>
+      <p class="recipes-count" id="recipesCount"></p>
+      <div class="recipe-grid" id="allRecipesGrid"></div>
+    </section>
+  </div>
+
+  <!-- RECIPE MODAL -->
+  <div class="modal-overlay" id="recipeModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeRecipe()">&#10005;</button>
+      <div class="modal-image" id="modalImage"></div>
+      <div class="modal-body">
+        <div class="modal-header-zone">
+          <div class="modal-cat" id="modalCat"></div>
+          <h1 class="modal-title" id="modalTitle"></h1>
+          <div class="modal-meta-row" id="modalMeta"></div>
+          <div class="modal-actions">
+            <button class="modal-action-btn" onclick="printRecipe()">
+              <svg viewBox="0 0 24 24"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+              Print
+            </button>
+            <button class="modal-action-btn" onclick="copyToNotes()">
+              <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+              Copy to Notes
+            </button>
+            <button class="modal-action-btn" onclick="shareRecipe()">
+              <svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg>
+              Share
+            </button>
+          </div>
+        </div>
+        <div class="modal-columns">
+          <div class="modal-ing-col">
+            <h3 class="modal-section-title">Ingredients <span class="modal-ing-count" id="modalIngCount"></span></h3>
+            <ul class="modal-ingredients" id="modalIngredients"></ul>
+          </div>
+          <div class="modal-inst-col">
+            <h3 class="modal-section-title">Instructions</h3>
+            <div class="modal-instructions" id="modalInstructions"></div>
+          </div>
+        </div>
+        <div class="modal-source">From Mom's Home Cooking — Southampton, NY</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEARCH -->
+  <div class="search-overlay" id="searchOverlay" onclick="closeSearch(event)">
+    <div class="search-box">
+      <input type="text" class="search-input" id="searchInput" placeholder="Search recipes..." oninput="doSearch(this.value)">
+      <div class="search-results" id="searchResults"></div>
+    </div>
+  </div>
+
+  <!-- SCROLL TO TOP -->
+  <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+  <!-- SHARE TOAST -->
+  <div class="share-toast" id="shareToast">Link copied! Send it to someone you love.</div>
+
+  <!-- FRIDGE FAB -->
+  <button class="fridge-fab" onclick="toggleFridge()" title="What's in My Fridge?">
+    <svg viewBox="0 0 24 24"><path d="M18 2.01L6 2c-1.1 0-2 .89-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.11-.9-1.99-2-1.99zM18 20H6v-9.02h12V20zm0-11H6V4h12v5zM8 5h2v3H8zm0 7h2v5H8z"/></svg>
+  </button>
+
+  <!-- FRIDGE BACKDROP -->
+  <div class="fridge-backdrop" id="fridgeBackdrop" onclick="toggleFridge()"></div>
+
+  <!-- FRIDGE DRAWER -->
+  <div class="fridge-drawer" id="fridgeDrawer">
+    <div class="fridge-drawer-header">
+      <div>
+        <div class="fridge-drawer-title">What's in My Fridge?</div>
+        <div class="fridge-drawer-sub">Tell us what you have — we'll find what Mom can make</div>
+      </div>
+      <button class="fridge-close" onclick="toggleFridge()">&#10005;</button>
+    </div>
+    <div class="fridge-drawer-body">
+      <div class="fridge-input-row">
+        <input type="text" class="fridge-input" id="fridgeInput" placeholder="Type an ingredient... (chicken, lemon, garlic)" onkeydown="if(event.key==='Enter')addFridgeItem()">
+        <button class="fridge-add-btn" onclick="addFridgeItem()">Add</button>
+      </div>
+      <div class="fridge-tags" id="fridgeTags"></div>
+      <p class="fridge-results-label" id="fridgeResultsLabel"></p>
+      <div class="fridge-results-grid" id="fridgeGrid"></div>
+    </div>
+  </div>
+
+  <!-- KITCHEN HELPER FAB -->
+  <button class="helper-fab" onclick="toggleHelper()" title="Mom's Kitchen Helper">
+    <svg viewBox="0 0 24 24"><path d="M8.1 13.34l2.83-2.83L3.91 3.5a4.008 4.008 0 000 5.66l4.19 4.18zm6.78-1.81c1.53.71 3.68.21 5.27-1.38 1.91-1.91 2.28-4.65.81-6.12-1.46-1.46-4.2-1.1-6.12.81-1.59 1.59-2.09 3.74-1.38 5.27L3.7 19.87l1.41 1.41L12 14.41l6.88 6.88 1.41-1.41L13.41 13l1.47-1.47z"/></svg>
+  </button>
+
+  <!-- KITCHEN HELPER BACKDROP -->
+  <div class="helper-backdrop" id="helperBackdrop" onclick="toggleHelper()"></div>
+
+  <!-- KITCHEN HELPER PANEL -->
+  <div class="helper-panel" id="helperPanel">
+    <div class="helper-header">
+      <div class="helper-header-top">
+        <span class="helper-title">Mom's Kitchen Helper</span>
+        <button class="helper-close" onclick="toggleHelper()">&#10005;</button>
+      </div>
+      <span class="helper-subtitle">Tips, tricks & conversions from Mom's kitchen drawer</span>
+    </div>
+
+    <div class="helper-tabs">
+      <button class="helper-tab active" onclick="showHelperTab('conversions', this)">Conversions</button>
+      <button class="helper-tab" onclick="showHelperTab('spices', this)">Spices</button>
+      <button class="helper-tab" onclick="showHelperTab('herbs', this)">Herbs</button>
+      <button class="helper-tab" onclick="showHelperTab('tips', this)">Cooking Tips</button>
+      <button class="helper-tab" onclick="showHelperTab('turkey', this)">Turkey</button>
+    </div>
+
+    <div class="helper-content">
+
+      <!-- CONVERSIONS TAB -->
+      <div class="helper-section active" id="helper-conversions">
+        <h3>Butter to Olive Oil</h3>
+        <div class="helper-row"><span class="helper-row-label">1 tsp butter</span><span class="helper-row-value">3/4 tsp olive oil</span></div>
+        <div class="helper-row"><span class="helper-row-label">1 tbsp butter</span><span class="helper-row-value">2 1/4 tsp olive oil</span></div>
+        <div class="helper-row"><span class="helper-row-label">1/4 cup butter</span><span class="helper-row-value">3 tbsp olive oil</span></div>
+        <div class="helper-row"><span class="helper-row-label">1/3 cup butter</span><span class="helper-row-value">1/4 cup olive oil</span></div>
+        <div class="helper-row"><span class="helper-row-label">1/2 cup butter</span><span class="helper-row-value">1/4 cup + 2 tbsp</span></div>
+        <div class="helper-row"><span class="helper-row-label">2/3 cup butter</span><span class="helper-row-value">1/2 cup olive oil</span></div>
+        <div class="helper-row"><span class="helper-row-label">3/4 cup butter</span><span class="helper-row-value">1/2 cup + 1 tbsp</span></div>
+        <div class="helper-row"><span class="helper-row-label">1 cup butter</span><span class="helper-row-value">3/4 cup olive oil</span></div>
+
+        <h3>Liquid Conversions</h3>
+        <div class="helper-row"><span class="helper-row-label">1/4 cup</span><span class="helper-row-value">4 tbsp = 2 fl oz</span></div>
+        <div class="helper-row"><span class="helper-row-label">1/3 cup</span><span class="helper-row-value">5 1/3 tbsp = 2 2/3 fl oz</span></div>
+        <div class="helper-row"><span class="helper-row-label">1/2 cup</span><span class="helper-row-value">8 tbsp = 4 fl oz</span></div>
+        <div class="helper-row"><span class="helper-row-label">1 cup</span><span class="helper-row-value">16 tbsp = 8 fl oz</span></div>
+        <div class="helper-row"><span class="helper-row-label">1 pint</span><span class="helper-row-value">2 cups = 16 fl oz</span></div>
+        <div class="helper-row"><span class="helper-row-label">1 quart</span><span class="helper-row-value">4 cups = 32 fl oz</span></div>
+        <div class="helper-row"><span class="helper-row-label">1 gallon</span><span class="helper-row-value">4 quarts = 16 cups</span></div>
+
+        <h3>Measurement Equivalents</h3>
+        <div class="helper-row"><span class="helper-row-label">1 tsp</span><span class="helper-row-value">1/3 tbsp</span></div>
+        <div class="helper-row"><span class="helper-row-label">1 tbsp</span><span class="helper-row-value">3 tsp</span></div>
+        <div class="helper-row"><span class="helper-row-label">2 tbsp</span><span class="helper-row-value">1 fl oz</span></div>
+        <div class="helper-row"><span class="helper-row-label">3/8 cup</span><span class="helper-row-value">1/4 cup + 2 tbsp</span></div>
+        <div class="helper-row"><span class="helper-row-label">5/8 cup</span><span class="helper-row-value">1/2 cup + 2 tbsp</span></div>
+        <div class="helper-row"><span class="helper-row-label">7/8 cup</span><span class="helper-row-value">3/4 cup + 2 tbsp</span></div>
+      </div>
+
+      <!-- SPICES TAB -->
+      <div class="helper-section" id="helper-spices">
+        <h3>Spice Substitutions</h3>
+        <div class="helper-tip">
+          <div class="helper-tip-title">Allspice (1 tsp)</div>
+          <div class="helper-tip-body">1/4 tsp cinnamon + 1/2 tsp ground cloves + 1/4 tsp nutmeg</div>
+        </div>
+        <div class="helper-tip">
+          <div class="helper-tip-title">Garlic (1 clove)</div>
+          <div class="helper-tip-body">1/2 tsp dried minced garlic or 1/8 tsp garlic powder</div>
+        </div>
+        <div class="helper-tip">
+          <div class="helper-tip-title">Garlic Salt (1 tsp)</div>
+          <div class="helper-tip-body">1/4 tsp garlic powder + 3/4 tsp salt</div>
+        </div>
+        <div class="helper-tip">
+          <div class="helper-tip-title">Fresh Ginger (1 tbsp grated)</div>
+          <div class="helper-tip-body">1/4 tsp ground ginger</div>
+        </div>
+        <div class="helper-tip">
+          <div class="helper-tip-title">Italian Seasoning (2 tsp)</div>
+          <div class="helper-tip-body">1 tsp dried oregano + 1/2 tsp dried basil + 1/2 tsp dried thyme</div>
+        </div>
+        <div class="helper-tip">
+          <div class="helper-tip-title">Prepared Mustard (1 tbsp)</div>
+          <div class="helper-tip-body">1 tsp dried mustard + 1-2 tsp vinegar or water</div>
+        </div>
+        <div class="helper-tip">
+          <div class="helper-tip-title">Onion (1 medium, chopped)</div>
+          <div class="helper-tip-body">1/4 cup dried minced onion or 1 tsp onion powder</div>
+        </div>
+      </div>
+
+      <!-- HERBS TAB -->
+      <div class="helper-section" id="helper-herbs">
+        <h3>Fresh Herbs to Dried</h3>
+        <table class="helper-table">
+          <tr><th>Herb</th><th>Fresh</th><th>Dried</th></tr>
+          <tr><td>Basil</td><td>2 tsp chopped</td><td>1 tsp</td></tr>
+          <tr><td>Bay Leaf</td><td>1 fresh</td><td>2 dried</td></tr>
+          <tr><td>Cilantro</td><td>3 tsp</td><td>1 tsp</td></tr>
+          <tr><td>Dill</td><td>3 tsp</td><td>1 tsp</td></tr>
+          <tr><td>Garlic (large clove)</td><td>1.5 tsp minced</td><td>1/2 tsp powder</td></tr>
+          <tr><td>Garlic (small clove)</td><td>1/2 tsp minced</td><td>1/8 tsp powder</td></tr>
+          <tr><td>Ginger</td><td>1 tbsp grated</td><td>1/4 tsp ground</td></tr>
+          <tr><td>Marjoram</td><td>3 tsp</td><td>1 tsp</td></tr>
+          <tr><td>Onion (1 medium)</td><td>1 cup chopped</td><td>1 tsp powder</td></tr>
+          <tr><td>Oregano</td><td>3 tsp</td><td>1 tsp</td></tr>
+          <tr><td>Parsley</td><td>2 tsp</td><td>1 tsp</td></tr>
+          <tr><td>Rosemary</td><td>3 tsp</td><td>1 tsp</td></tr>
+          <tr><td>Sage</td><td>2 tsp</td><td>1 tsp</td></tr>
+          <tr><td>Tarragon</td><td>3 tsp</td><td>1 tsp</td></tr>
+          <tr><td>Thyme</td><td>3 tsp</td><td>1 tsp</td></tr>
+          <tr><td>Vanilla</td><td>1" bean</td><td>1 tsp extract</td></tr>
+          <tr><td>Cinnamon</td><td>1 stick</td><td>1/2 tsp ground</td></tr>
+          <tr><td>Star Anise</td><td>1 fresh</td><td>1/2 tsp anise seed</td></tr>
+        </table>
+        <div class="helper-rule">
+          <p>Mom's Rule: 1 tsp dried leaf herb = 1/2 tsp ground dried herb</p>
+        </div>
+      </div>
+
+      <!-- COOKING TIPS TAB -->
+      <div class="helper-section" id="helper-tips">
+        <h3>Perfect Hard Boiled Eggs</h3>
+        <div class="helper-tip">
+          <div class="helper-tip-body">
+            <ol>
+              <li>Lay eggs in a saucepan and cover with water (at least 2" above eggs)</li>
+              <li>Bring to a full boil over high heat</li>
+              <li>Turn off heat, cover, and let stand 10-12 minutes</li>
+              <li>Drain and run under cold water</li>
+              <li>Peel under cool running water</li>
+            </ol>
+          </div>
+        </div>
+
+        <h3>How to Cook Spaghetti Squash</h3>
+        <div class="helper-tip">
+          <div class="helper-tip-body">
+            <ol>
+              <li>Preheat oven to 400&deg;</li>
+              <li>Slice medium squash (2-3 lbs) lengthwise, stem to tail</li>
+              <li>Scoop out seeds and stringy bits</li>
+              <li>Place cut-side down in roasting pan with water covering bottom</li>
+              <li>Roast 30-45 minutes until fork easily pierces flesh</li>
+              <li>Use fork to separate flesh into strands</li>
+              <li>Serve with butter or olive oil</li>
+            </ol>
+          </div>
+        </div>
+        <div class="helper-tip" style="background: var(--sea-glass); color: #fff;">
+          <div class="helper-tip-title" style="color: #fff;">Storage Tip</div>
+          <div class="helper-tip-body" style="color: rgba(255,255,255,0.85);">Spaghetti squash can be refrigerated up to one week or frozen up to 3 months.</div>
+        </div>
+      </div>
+
+      <!-- TURKEY TAB -->
+      <div class="helper-section" id="helper-turkey">
+        <h3>Turkey Roasting Timetable</h3>
+        <p style="font-size: 13px; color: var(--weathered); margin-bottom: 16px;">Oven temperature: 325&deg;F</p>
+        <table class="helper-table">
+          <tr><th>Size</th><th>Thaw Time</th><th>Unstuffed</th><th>Stuffed</th></tr>
+          <tr><td>10-18 lbs</td><td>3-4 days</td><td>3-3.5 hrs</td><td>3.75-4.5 hrs</td></tr>
+          <tr><td>18-22 lbs</td><td>4-5 days</td><td>3.5-4 hrs</td><td>4.5-5 hrs</td></tr>
+          <tr><td>22-24 lbs</td><td>5-6 days</td><td>4-4.5 hrs</td><td>5-5.5 hrs</td></tr>
+          <tr><td>24-30 lbs</td><td>6-7 days</td><td>4.5-5 hrs</td><td>5.5-6.25 hrs</td></tr>
+        </table>
+        <div class="helper-rule" style="background: var(--driftwood);">
+          <p>Mom says: Always let the turkey rest 20-30 minutes before carving!</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-logo">Mom's Home Cooking</span>
+    <div class="footer-links">
+      <a onclick="goAllRecipes()">Recipes</a>
+      <a href="#about">Our Story</a>
+    </div>
+    <span class="footer-tagline">Made with love in Southampton, NY</span>
+  </footer>
+
+  <script src="recipes.js"></script>
+  <script>
+    // --- Category images (use first recipe image from each category) ---
+    const CAT_IMAGES = {};
+    const CAT_COUNTS = {};
+    RECIPES.forEach(r => {
+      if (r.category) {
+        CAT_COUNTS[r.category] = (CAT_COUNTS[r.category] || 0) + 1;
+        if (!CAT_IMAGES[r.category] && r.image) {
+          CAT_IMAGES[r.category] = r.image;
+        }
+      }
+    });
+
+    // Top categories for homepage grid (top 8 by count)
+    const TOP_CATS = Object.entries(CAT_COUNTS)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 8);
+
+    // --- Render category grid ---
+    const catGrid = document.getElementById('catGrid');
+    TOP_CATS.forEach(([cat, count]) => {
+      const img = CAT_IMAGES[cat] || '';
+      catGrid.innerHTML += `
+        <div class="cat-card" onclick="goAllRecipes('${cat.replace(/'/g, "\\'")}')">
+          <img src="${img}" alt="${cat}" loading="lazy">
+          <div class="cat-card-overlay">
+            <div class="cat-card-name">${cat}</div>
+            <div class="cat-card-count">${count} recipes</div>
+          </div>
+        </div>`;
+    });
+
+    // --- Featured recipes (hand-pick some good ones or take first with images) ---
+    const featured = RECIPES.filter(r => r.image && r.ingredients.length > 3 && r.instructions)
+      .sort(() => 0.5 - Math.random())
+      .slice(0, 6);
+
+    const featuredGrid = document.getElementById('featuredGrid');
+    featured.forEach(r => {
+      featuredGrid.innerHTML += recipeCardHTML(r);
+    });
+
+    function recipeCardHTML(r) {
+      const meta = [r.category, r.serves].filter(Boolean).join(' · ');
+      const desc = r.ingredients.slice(0, 3).join(', ') + (r.ingredients.length > 3 ? '...' : '');
+      const imgHTML = r.image
+        ? `<img src="${r.image}" alt="${r.title}" loading="lazy">`
+        : `<div class="no-img-placeholder"><svg viewBox="0 0 24 24"><path d="M8.1 13.34l2.83-2.83L3.91 3.5a4.008 4.008 0 000 5.66l4.19 4.18zm6.78-1.81c1.53.71 3.68.21 5.27-1.38 1.91-1.91 2.28-4.65.81-6.12-1.46-1.46-4.2-1.1-6.12.81-1.59 1.59-2.09 3.74-1.38 5.27L3.7 19.87l1.41 1.41L12 14.41l6.88 6.88 1.41-1.41L13.41 13l1.47-1.47z"/></svg><span>Mom's recipe</span></div>`;
+      return `
+        <div class="recipe-card" onclick="openRecipe('${r.slug}')">
+          <div class="recipe-card-img">${imgHTML}</div>
+          <div class="recipe-card-meta">${meta}</div>
+          <div class="recipe-card-title">${r.title}</div>
+          <div class="recipe-card-desc">${desc}</div>
+        </div>`;
+    }
+
+    // --- All Recipes Page ---
+    let currentFilter = 'All';
+
+    function goAllRecipes(category) {
+      document.getElementById('homepage').classList.add('hidden');
+      document.getElementById('allRecipesPage').classList.add('visible');
+      currentFilter = category || 'All';
+      renderAllRecipes();
+      window.scrollTo(0, 0);
+    }
+
+    function goHome() {
+      document.getElementById('homepage').classList.remove('hidden');
+      document.getElementById('allRecipesPage').classList.remove('visible');
+      window.scrollTo(0, 0);
+    }
+
+    function renderAllRecipes() {
+      // Filter bar
+      const allCats = ['All', ...Object.entries(CAT_COUNTS).sort((a, b) => b[1] - a[1]).map(e => e[0])];
+      const filterBar = document.getElementById('filterBar');
+      filterBar.innerHTML = allCats.map(c =>
+        `<button class="filter-pill ${c === currentFilter ? 'active' : ''}" onclick="filterRecipes('${c.replace(/'/g, "\\'")}')">${c}${c !== 'All' ? ` (${CAT_COUNTS[c]})` : ''}</button>`
+      ).join('');
+
+      // Filter recipes
+      let filtered = currentFilter === 'All'
+        ? [...RECIPES]
+        : RECIPES.filter(r => r.category === currentFilter);
+
+      // Sort
+      const sortVal = document.getElementById('sortSelect').value;
+      if (sortVal === 'title') filtered.sort((a, b) => a.title.localeCompare(b.title));
+      else if (sortVal === 'title-desc') filtered.sort((a, b) => b.title.localeCompare(a.title));
+      else if (sortVal === 'newest') filtered.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+      else if (sortVal === 'oldest') filtered.sort((a, b) => (a.date || '').localeCompare(b.date || ''));
+      else if (sortVal === 'category') filtered.sort((a, b) => (a.category || '').localeCompare(b.category || '') || a.title.localeCompare(b.title));
+
+      document.getElementById('recipesCount').textContent = `${filtered.length} recipe${filtered.length !== 1 ? 's' : ''}`;
+      document.getElementById('allRecipesTitle').textContent = currentFilter === 'All' ? 'All Recipes' : currentFilter;
+
+      const grid = document.getElementById('allRecipesGrid');
+      grid.innerHTML = filtered.map(r => recipeCardHTML(r)).join('');
+    }
+
+    function filterRecipes(cat) {
+      currentFilter = cat;
+      renderAllRecipes();
+    }
+
+    // --- Recipe Detail ---
+    let currentRecipeSlug = null;
+
+    function openRecipe(slug) {
+      const r = RECIPES.find(r => r.slug === slug);
+      if (!r) return;
+      currentRecipeSlug = slug;
+
+      // --- Image ---
+      const imgEl = document.getElementById('modalImage');
+      if (r.image) {
+        imgEl.innerHTML = `<img src="${r.image}" alt="${r.title}">`;
+        imgEl.classList.remove('no-image');
+      } else {
+        imgEl.innerHTML = '';
+        imgEl.classList.add('no-image');
+      }
+
+      // --- Category ---
+      document.getElementById('modalCat').textContent = r.category || '';
+
+      // --- Title ---
+      document.getElementById('modalTitle').textContent = r.title;
+
+      // --- Meta row (serves, ingredient count, estimated time) ---
+      const metaParts = [];
+      if (r.serves) {
+        metaParts.push(`<span class="modal-meta-item"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg><strong>${r.serves}</strong></span>`);
+      }
+      metaParts.push(`<span class="modal-meta-item"><svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg><strong>${r.ingredients.length}</strong> ingredients</span>`);
+      // Estimate cook time from instruction length
+      const hasOven = /preheat|bake|roast|oven/i.test(r.instructions);
+      const hasSlow = /slow cooker|crockpot|hours/i.test(r.instructions);
+      if (hasSlow) {
+        metaParts.push(`<span class="modal-meta-item"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>Slow cook</span>`);
+      } else if (hasOven) {
+        metaParts.push(`<span class="modal-meta-item"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>Oven</span>`);
+      }
+      document.getElementById('modalMeta').innerHTML = metaParts.join('');
+
+      // --- Ingredients ---
+      // Filter out "Serves X" if it snuck into ingredients
+      const cleanIngredients = r.ingredients.filter(i =>
+        !(/^serves?\s/i.test(i.trim()) || /^makes?\s/i.test(i.trim()) || /^yields?\s/i.test(i.trim()))
+      );
+      document.getElementById('modalIngCount').textContent = `(${cleanIngredients.length})`;
+      document.getElementById('modalIngredients').innerHTML = cleanIngredients.map(i =>
+        `<li><span>${i}</span></li>`
+      ).join('');
+
+      // --- Instructions: parse into numbered steps ---
+      const instEl = document.getElementById('modalInstructions');
+      const rawInst = r.instructions || '';
+
+      if (!rawInst) {
+        instEl.innerHTML = '<div class="modal-inst-note">This is a simple recipe — combine the ingredients above and enjoy!</div>';
+      } else {
+        // Split into logical steps by newlines, then by sentences for long paragraphs
+        let steps = [];
+        const lines = rawInst.split('\n').map(l => l.trim()).filter(Boolean);
+
+        lines.forEach(line => {
+          // Handle bold sub-headers like "**Preheat the oven to 350°**"
+          let processed = line.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+
+          // If line is short and has no period, it might be a sub-header (like "Cream Cheese Frosting")
+          if (processed.length < 45 && !processed.includes('.') && !processed.includes('<strong>')) {
+            steps.push({ type: 'header', text: processed });
+            return;
+          }
+
+          // Split long paragraphs into individual sentences as steps
+          if (processed.length > 200) {
+            const sentences = processed.match(/[^.!]+[.!]+/g) || [processed];
+            sentences.forEach(s => {
+              const trimmed = s.trim();
+              if (trimmed.length > 5) steps.push({ type: 'step', text: trimmed });
+            });
+          } else {
+            steps.push({ type: 'step', text: processed });
+          }
+        });
+
+        let stepNum = 0;
+        instEl.innerHTML = steps.map(s => {
+          if (s.type === 'header') {
+            stepNum = 0; // reset numbering after sub-headers
+            return `<div style="margin: 20px 0 12px; font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 600; color: var(--sea-glass);">${s.text}</div>`;
+          }
+          stepNum++;
+          return `<div class="modal-step"><span class="modal-step-num">${stepNum}</span><span class="modal-step-text">${s.text}</span></div>`;
+        }).join('');
+      }
+
+      document.getElementById('recipeModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeRecipe() {
+      document.getElementById('recipeModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Close modal on overlay click
+    document.getElementById('recipeModal').addEventListener('click', (e) => {
+      if (e.target === document.getElementById('recipeModal')) closeRecipe();
+    });
+
+    // --- Search ---
+    function openSearch() {
+      document.getElementById('searchOverlay').classList.add('open');
+      document.getElementById('searchInput').value = '';
+      document.getElementById('searchResults').innerHTML = '';
+      setTimeout(() => document.getElementById('searchInput').focus(), 100);
+    }
+
+    function closeSearch(e) {
+      if (e && e.target !== document.getElementById('searchOverlay')) return;
+      document.getElementById('searchOverlay').classList.remove('open');
+    }
+
+    function highlightMatch(text, query) {
+      if (!query) return text;
+      const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      return text.replace(new RegExp(`(${escaped})`, 'gi'), '<mark style="background:var(--driftwood);color:#fff;padding:0 2px;border-radius:2px;">$1</mark>');
+    }
+
+    function doSearch(q) {
+      const results = document.getElementById('searchResults');
+      if (!q || q.length < 2) { results.innerHTML = ''; return; }
+
+      const lower = q.toLowerCase();
+      const matches = RECIPES.filter(r =>
+        r.title.toLowerCase().includes(lower) ||
+        r.category.toLowerCase().includes(lower) ||
+        r.ingredients.some(i => i.toLowerCase().includes(lower))
+      ).slice(0, 12);
+
+      if (matches.length === 0) {
+        results.innerHTML = '<div class="search-empty">No recipes found</div>';
+        return;
+      }
+
+      results.innerHTML = matches.map(r => {
+        // Find what matched for context line
+        let context = '';
+        if (r.title.toLowerCase().includes(lower)) {
+          context = '';
+        } else if (r.category.toLowerCase().includes(lower)) {
+          context = '';
+        } else {
+          const matchedIng = r.ingredients.find(i => i.toLowerCase().includes(lower));
+          if (matchedIng) context = `<div style="font-size:12px;color:var(--weathered);margin-top:2px;">Ingredient: ${highlightMatch(matchedIng, q)}</div>`;
+        }
+        return `
+          <div class="search-result" onclick="closeSearchAndOpen('${r.slug}')">
+            <div class="search-result-img">
+              ${r.image ? `<img src="${r.image}" alt="${r.title}" loading="lazy">` : ''}
+            </div>
+            <div>
+              <div class="search-result-title">${highlightMatch(r.title, q)}</div>
+              <div class="search-result-cat">${highlightMatch(r.category, q)}</div>
+              ${context}
+            </div>
+          </div>`;
+      }).join('');
+    }
+
+    function closeSearchAndOpen(slug) {
+      document.getElementById('searchOverlay').classList.remove('open');
+      openRecipe(slug);
+    }
+
+    // Escape key handlers
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeRecipe();
+        document.getElementById('searchOverlay').classList.remove('open');
+        if (document.getElementById('fridgeDrawer').classList.contains('open')) toggleFridge();
+      }
+    });
+
+    // --- Kitchen Helper Panel ---
+    function toggleHelper() {
+      document.getElementById('helperPanel').classList.toggle('open');
+      document.getElementById('helperBackdrop').classList.toggle('open');
+      if (document.getElementById('helperPanel').classList.contains('open')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    }
+
+    function showHelperTab(tabId, btn) {
+      document.querySelectorAll('.helper-section').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.helper-tab').forEach(t => t.classList.remove('active'));
+      document.getElementById('helper-' + tabId).classList.add('active');
+      btn.classList.add('active');
+    }
+
+    // Nav scroll effect + scroll-to-top visibility
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 10);
+      document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 600);
+    });
+
+    // --- What's for Dinner Spinner ---
+    const dinnerPool = RECIPES.filter(r => r.image && r.ingredients.length > 3 && r.instructions);
+    let lastDinnerSlug = null;
+
+    function spinDinner() {
+      const btn = document.querySelector('.dinner-spin-btn');
+      btn.classList.add('spinning');
+      setTimeout(() => btn.classList.remove('spinning'), 400);
+
+      let pick;
+      do {
+        pick = dinnerPool[Math.floor(Math.random() * dinnerPool.length)];
+      } while (pick.slug === lastDinnerSlug && dinnerPool.length > 1);
+      lastDinnerSlug = pick.slug;
+
+      const card = document.getElementById('dinnerCard');
+      card.style.transform = 'scale(0.95)';
+      card.style.opacity = '0.5';
+      setTimeout(() => {
+        const meta = [pick.category, pick.serves].filter(Boolean).join(' · ');
+        card.innerHTML = `
+          <div class="dinner-card-img" onclick="openRecipe('${pick.slug}')">
+            <img src="${pick.image}" alt="${pick.title}">
+          </div>
+          <div class="dinner-card-body" onclick="openRecipe('${pick.slug}')">
+            <div class="dinner-card-cat">${meta}</div>
+            <div class="dinner-card-title">${pick.title}</div>
+            <div class="dinner-card-desc">${pick.ingredients.slice(0, 4).join(', ')}${pick.ingredients.length > 4 ? '...' : ''}</div>
+          </div>`;
+        card.style.transform = '';
+        card.style.opacity = '';
+      }, 200);
+    }
+
+    // Auto-spin on load
+    spinDinner();
+
+    // --- Fridge Drawer ---
+    function toggleFridge() {
+      const drawer = document.getElementById('fridgeDrawer');
+      const backdrop = document.getElementById('fridgeBackdrop');
+      drawer.classList.toggle('open');
+      backdrop.classList.toggle('open');
+      if (drawer.classList.contains('open')) {
+        setTimeout(() => document.getElementById('fridgeInput').focus(), 350);
+      }
+    }
+
+    // --- What's in My Fridge ---
+    let fridgeItems = [];
+
+    function addFridgeItem() {
+      const input = document.getElementById('fridgeInput');
+      const val = input.value.trim().toLowerCase();
+      if (!val || fridgeItems.includes(val)) { input.value = ''; return; }
+      fridgeItems.push(val);
+      input.value = '';
+      renderFridgeTags();
+      updateFridgeResults();
+    }
+
+    function removeFridgeItem(item) {
+      fridgeItems = fridgeItems.filter(i => i !== item);
+      renderFridgeTags();
+      updateFridgeResults();
+    }
+
+    function renderFridgeTags() {
+      const container = document.getElementById('fridgeTags');
+      container.innerHTML = fridgeItems.map(item =>
+        `<span class="fridge-tag">${item}<button class="fridge-tag-x" onclick="removeFridgeItem('${item.replace(/'/g, "\\'")}')">&times;</button></span>`
+      ).join('');
+    }
+
+    function updateFridgeResults() {
+      const label = document.getElementById('fridgeResultsLabel');
+      const grid = document.getElementById('fridgeGrid');
+
+      if (fridgeItems.length === 0) {
+        label.textContent = 'Add some ingredients above to get started';
+        grid.innerHTML = '';
+        return;
+      }
+
+      // Score each recipe by how many fridge items match its ingredients
+      const scored = RECIPES.map(r => {
+        const ingredientText = r.ingredients.join(' ').toLowerCase();
+        const matches = fridgeItems.filter(item => ingredientText.includes(item));
+        return { recipe: r, matchCount: matches.length, matchItems: matches };
+      }).filter(s => s.matchCount > 0)
+        .sort((a, b) => b.matchCount - a.matchCount || a.recipe.title.localeCompare(b.recipe.title))
+        .slice(0, 12);
+
+      if (scored.length === 0) {
+        label.textContent = 'No matching recipes yet — try different ingredients!';
+        grid.innerHTML = '';
+        return;
+      }
+
+      label.textContent = `${scored.length} recipe${scored.length > 1 ? 's' : ''} match your ingredients`;
+
+      grid.innerHTML = scored.map(s => {
+        const r = s.recipe;
+        const meta = [r.category, r.serves].filter(Boolean).join(' · ');
+        const badgeClass = s.matchCount >= fridgeItems.length ? 'fridge-match-badge' : 'fridge-match-badge fridge-match-low';
+        const badgeText = s.matchCount === fridgeItems.length ? 'Perfect match!' : `${s.matchCount}/${fridgeItems.length} ingredients`;
+        const imgHTML = r.image
+          ? `<img src="${r.image}" alt="${r.title}" loading="lazy">`
+          : `<div class="no-img-placeholder"><svg viewBox="0 0 24 24"><path d="M8.1 13.34l2.83-2.83L3.91 3.5a4.008 4.008 0 000 5.66l4.19 4.18zm6.78-1.81c1.53.71 3.68.21 5.27-1.38 1.91-1.91 2.28-4.65.81-6.12-1.46-1.46-4.2-1.1-6.12.81-1.59 1.59-2.09 3.74-1.38 5.27L3.7 19.87l1.41 1.41L12 14.41l6.88 6.88 1.41-1.41L13.41 13l1.47-1.47z"/></svg><span>Mom's recipe</span></div>`;
+        return `
+          <div class="recipe-card" onclick="toggleFridge();openRecipe('${r.slug}')">
+            <div class="recipe-card-img">${imgHTML}</div>
+            <div class="recipe-card-meta">${meta}<span class="${badgeClass}">${badgeText}</span></div>
+            <div class="recipe-card-title">${r.title}</div>
+            <div class="recipe-card-desc">${s.matchItems.join(', ')} matched</div>
+          </div>`;
+      }).join('');
+    }
+
+    // --- Print Recipe ---
+    function printRecipe() {
+      // Ensure modal is open so print CSS can show it
+      if (!document.getElementById('recipeModal').classList.contains('open')) return;
+      window.print();
+    }
+
+    // --- Copy to Notes ---
+    function copyToNotes() {
+      const r = RECIPES.find(r => r.slug === currentRecipeSlug);
+      if (!r) return;
+
+      const cleanIng = r.ingredients.filter(i =>
+        !(/^serves?\s/i.test(i.trim()) || /^makes?\s/i.test(i.trim()) || /^yields?\s/i.test(i.trim()))
+      );
+
+      const lines = [];
+      lines.push(r.title);
+      const meta = [r.serves, r.category].filter(Boolean).join(' · ');
+      if (meta) lines.push(meta);
+      lines.push('');
+      lines.push(`Ingredients (${cleanIng.length})`);
+      cleanIng.forEach(i => lines.push(`  - ${i}`));
+      lines.push('');
+      lines.push('Instructions');
+      const inst = (r.instructions || 'Combine ingredients and enjoy.').replace(/\*\*/g, '');
+      lines.push(inst);
+      lines.push('');
+      lines.push(`— Mom's Home Cooking, Southampton NY`);
+
+      const text = lines.join('\n');
+
+      navigator.clipboard.writeText(text).then(() => {
+        const toast = document.getElementById('shareToast');
+        toast.textContent = 'Recipe copied! Paste into Notes, Messages, anywhere.';
+        toast.classList.add('show');
+        setTimeout(() => { toast.classList.remove('show'); }, 2500);
+      });
+    }
+
+    // --- Share Recipe ---
+    function shareRecipe() {
+      const r = RECIPES.find(r => r.slug === currentRecipeSlug);
+      if (!r) return;
+      const url = window.location.href.split('#')[0] + '#recipe=' + r.slug;
+      const text = `Check out Mom's ${r.title} recipe!`;
+
+      if (navigator.share) {
+        navigator.share({ title: r.title, text: text, url: url }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(url).then(() => {
+          const toast = document.getElementById('shareToast');
+          toast.classList.add('show');
+          setTimeout(() => toast.classList.remove('show'), 2500);
+        });
+      }
+    }
+
+    // --- Deep link: open recipe from hash ---
+    function checkHash() {
+      const hash = window.location.hash;
+      if (hash.startsWith('#recipe=')) {
+        const slug = hash.slice(8);
+        openRecipe(slug);
+      }
+    }
+    window.addEventListener('hashchange', checkHash);
+    checkHash();
+
+    // --- Dynamic counts ---
+    document.getElementById('heroBrowseBtn').textContent = `Browse All ${RECIPES.length} Recipes`;
+    document.getElementById('catCountLink').textContent = `All ${Object.keys(CAT_COUNTS).length} Categories`;
+    document.getElementById('searchInput').placeholder = `Search ${RECIPES.length} recipes...`;
+
+    // --- About image from actual recipes ---
+    const heroRecipes = RECIPES.filter(r => r.image && r.ingredients.length > 5);
+    const aboutPick = heroRecipes[Math.floor(Math.random() * heroRecipes.length)];
+    if (aboutPick) {
+      document.getElementById('aboutImage').innerHTML = `<img src="${aboutPick.image}" alt="${aboutPick.title}" loading="lazy">`;
+    }
+
+    // --- Hamburger menu toggle ---
+    function toggleMobileMenu(btn) {
+      btn.classList.toggle('open');
+      document.querySelector('.nav-links').classList.toggle('open');
+    }
+
+    // --- Share site ---
+    function shareSite() {
+      const url = window.location.href.split('#')[0];
+      const text = "Check out Mom's Home Cooking — family recipes from Southampton, NY!";
+      if (navigator.share) {
+        navigator.share({ title: "Mom's Home Cooking", text: text, url: url }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(url).then(() => {
+          const toast = document.getElementById('shareToast');
+          toast.textContent = 'Link copied! Share it with someone you love.';
+          toast.classList.add('show');
+          setTimeout(() => { toast.classList.remove('show'); }, 2500);
+        });
+      }
+    }
+  </script>
+
+</body>
+</html>

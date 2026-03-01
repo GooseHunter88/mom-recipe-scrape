@@ -1,0 +1,17 @@
+[
+  {
+    "slug": "no-knead-artisan-bread",
+    "status": "error",
+    "error": "HTTPSConnectionPool(host='r.jina.ai', port=443): Read timed out. (read timeout=60)"
+  },
+  {
+    "slug": "easy-stuffed-peppers-serves-8",
+    "status": "error",
+    "error": "503 Server Error: Service Unavailable for url: https://r.jina.ai/https://www.mymomshomecooking.com/post/easy-stuffed-peppers-serves-8"
+  },
+  {
+    "slug": "apple-cake-12-15-servings",
+    "status": "error",
+    "error": "503 Server Error: Service Unavailable for url: https://r.jina.ai/https://www.mymomshomecooking.com/post/apple-cake-12-15-servings"
+  }
+]

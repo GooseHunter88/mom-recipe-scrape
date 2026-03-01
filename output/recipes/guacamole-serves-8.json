@@ -1,0 +1,20 @@
+{
+  "url": "https://www.mymomshomecooking.com/post/guacamole-serves-8",
+  "slug": "guacamole-serves-8",
+  "title": "Guacamole",
+  "serves": "Serves 8",
+  "category": "Appetizers & Dips",
+  "date": "2022-02-26",
+  "ingredients": [
+    "3 Ripe Haas avocados",
+    "2 tbsp fresh salsa, I use Top Crop from the produce department",
+    "juice of 1 lime",
+    "fine sea salt",
+    "1 tbsp sour cream"
+  ],
+  "instructions": "Cut the avocados in half and remove the pit. Scoop the avocado out of the skin with a spoon and place in a medium size bowl.\nMash the avocados. Don't over mash, it's better with some pieces left.\nAdd the salsa, sour cream and salt. Squeeze the lime juice into the mixture and stir to combine. You may add more salsa or salt to taste at this point.\nServe with your favorite chips.",
+  "images": [
+    "https://static.wixstatic.com/media/75d545_0165977cf2f0473093b57d0e150f53b8~mv2.jpg"
+  ],
+  "local_image": "/Users/remibarton/Documents/mom-recipe-scrape/output/images/guacamole-serves-8.jpg"
+}

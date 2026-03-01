@@ -1,0 +1,20 @@
+{
+  "url": "https://www.mymomshomecooking.com/post/red-sangria",
+  "slug": "red-sangria",
+  "title": "Red Sangria",
+  "serves": "",
+  "category": "Beverage",
+  "date": "2022-02-27",
+  "ingredients": [
+    "1 bottle (750ml) dry red wine",
+    "\u00bc cup brandy",
+    "\u00bc cup orange liqueur",
+    "2 tbsp sugar",
+    "2 sliced oranges",
+    "1 sliced green apple",
+    "1 \u00bd cup seltzer"
+  ],
+  "instructions": "Mix together in a pitcher and serve!",
+  "images": [],
+  "local_image": "/Users/remibarton/Documents/mom-recipe-scrape/output/images/red-sangria.jpeg"
+}

@@ -1,0 +1,19 @@
+{
+  "url": "https://www.mymomshomecooking.com/post/french-toast",
+  "slug": "french-toast",
+  "title": "French Toast",
+  "serves": "",
+  "category": "Breakfast",
+  "date": "2022-02-25",
+  "ingredients": [
+    "3 eggs, slightly beaten",
+    "\u00bd tsp salt",
+    "2 tbsp sugar",
+    "1 cup of milk",
+    "\u00bc tsp cinnamon, or to taste",
+    "10 slices of bread( thicker the better)"
+  ],
+  "instructions": "Mix the first 5 ingredients in a large bowl. Heat a griddle over medium heat, spray with a butter based cooking spray. Dip the bread in the egg mixture coating both sides well. Cook on greased griddle over medium high heat until each side is golden brown.\nServe with butter and hot maple syrup.",
+  "images": [],
+  "local_image": "/Users/remibarton/Documents/mom-recipe-scrape/output/images/french-toast.png"
+}

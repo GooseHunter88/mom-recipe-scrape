@@ -1,0 +1,22 @@
+{
+  "url": "https://www.mymomshomecooking.com/post/white-sangria",
+  "slug": "white-sangria",
+  "title": "White Sangria",
+  "serves": "",
+  "category": "Beverage",
+  "date": "2022-02-28",
+  "ingredients": [
+    "1 bottle (750ml) dry white wine",
+    "\u00bc cup light rum",
+    "3 tbsp elderflower liqueur",
+    "2 tbsp sugar",
+    "2 sliced nectarines",
+    "2 sliced plums",
+    "1 \u00bd cup seltzer"
+  ],
+  "instructions": "Mix together in a pitcher and serve!",
+  "images": [
+    "https://static.wixstatic.com/media/75d545_e31bff11b12f4586ae36dff50e306b2e~mv2.png"
+  ],
+  "local_image": "/Users/remibarton/Documents/mom-recipe-scrape/output/images/white-sangria.png"
+}

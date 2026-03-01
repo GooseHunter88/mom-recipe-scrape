@@ -1,0 +1,18 @@
+{
+  "url": "https://www.mymomshomecooking.com/post/crepes",
+  "slug": "crepes",
+  "title": "Crepes",
+  "serves": "",
+  "category": "Desserts",
+  "date": "2022-02-25",
+  "ingredients": [
+    "2 eggs",
+    "1 cup milk",
+    "\u00bd tsp salt",
+    "1 cup flour",
+    "2tbsp butter, melted"
+  ],
+  "instructions": "Beat the eggs well. Then beat in the milk, salt, flour and butter.\nAdd the batter to a crepe pan and cook over medium heat until the crepes begin to brown on each side",
+  "images": [],
+  "local_image": "/Users/remibarton/Documents/mom-recipe-scrape/output/images/crepes.png"
+}

@@ -1,0 +1,22 @@
+{
+  "url": "https://www.mymomshomecooking.com/post/cherry-blossom-martini",
+  "slug": "cherry-blossom-martini",
+  "title": "Cherry Blossom Martini",
+  "serves": "",
+  "category": "Beverage",
+  "date": "2022-03-03",
+  "ingredients": [
+    "1 oz Favorite vodka",
+    "2 oz Hakutsuru Sayuri Junmai Nigori",
+    "-----------------------------------",
+    "0.5 oz Grenadine",
+    "----------------",
+    "0.3 oz fresh squeezed lemon juice",
+    "---------------------------------"
+  ],
+  "instructions": "Place all ingredients in a martini shaker, shake and pour!\n----------------------------------------------------------",
+  "images": [
+    "https://static.wixstatic.com/media/75d545_ec9093d7ee1d4ab4bed9b1ae8cb326f0~mv2.jpeg"
+  ],
+  "local_image": "/Users/remibarton/Documents/mom-recipe-scrape/output/images/cherry-blossom-martini.jpeg"
+}
