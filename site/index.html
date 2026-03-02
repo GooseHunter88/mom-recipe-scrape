@@ -1191,6 +1191,139 @@
     }
     .modal-action-btn:hover { border-color: var(--sea-glass); color: var(--sea-glass); }
     .modal-action-btn svg { width: 16px; height: 16px; fill: currentColor; }
+
+    /* --- SERVING ADJUSTER --- */
+    .serving-adjuster {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .serving-adjuster-label {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--weathered);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .serving-pills {
+      display: flex;
+      gap: 6px;
+    }
+    .serving-pill {
+      padding: 5px 14px;
+      border-radius: 100px;
+      border: 1.5px solid var(--warm-sand);
+      background: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--weathered);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .serving-pill:hover {
+      border-color: var(--sea-glass);
+      color: var(--sea-glass);
+    }
+    .serving-pill.active {
+      background: var(--sea-glass);
+      border-color: var(--sea-glass);
+      color: var(--sand-white);
+    }
+
+    /* --- CALORIE ESTIMATE --- */
+    .modal-meta-calories {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      color: var(--weathered);
+    }
+    .modal-meta-calories svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--driftwood);
+      flex-shrink: 0;
+    }
+    .modal-meta-calories strong {
+      color: var(--ocean-slate);
+      font-weight: 600;
+    }
+    .calorie-disclaimer {
+      font-size: 10px;
+      color: var(--weathered);
+      font-style: italic;
+      margin-top: 4px;
+      opacity: 0.7;
+    }
+
+    /* --- RELATED RECIPES --- */
+    .related-recipes {
+      margin-top: 36px;
+      padding-top: 28px;
+      border-top: 1px solid var(--warm-sand);
+    }
+    .related-recipes-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--ocean-slate);
+      margin-bottom: 18px;
+      letter-spacing: -0.01em;
+    }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .related-card {
+      cursor: pointer;
+      transition: transform 0.2s;
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--light-sand);
+    }
+    .related-card:hover { transform: translateY(-3px); }
+    .related-card-img {
+      width: 100%;
+      height: 120px;
+      overflow: hidden;
+      background: var(--warm-sand);
+    }
+    .related-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+    .related-card:hover .related-card-img img { transform: scale(1.05); }
+    .related-card-body {
+      padding: 10px 12px 12px;
+    }
+    .related-card-cat {
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--sea-glass);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .related-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ocean-slate);
+      line-height: 1.3;
+    }
+
+    @media (max-width: 640px) {
+      .related-grid { grid-template-columns: 1fr; gap: 12px; }
+      .related-card { display: flex; }
+      .related-card-img { width: 100px; height: 80px; flex-shrink: 0; }
+      .related-card-body { display: flex; flex-direction: column; justify-content: center; }
+    }
+
     .share-toast {
       position: fixed;
       bottom: 32px;
@@ -1274,7 +1407,7 @@
         max-width: 100% !important;
         margin: 0 !important;
       }
-      .modal-close, .modal-actions { display: none !important; }
+      .modal-close, .modal-actions, .serving-adjuster, .related-recipes, .calorie-disclaimer { display: none !important; }
       .modal-image { height: 200px !important; break-inside: avoid; }
       .modal-image.no-image { display: none !important; }
       .modal-image img { height: 200px !important; }
@@ -1493,6 +1626,15 @@
         <div class="modal-columns">
           <div class="modal-ing-col">
             <h3 class="modal-section-title">Ingredients <span class="modal-ing-count" id="modalIngCount"></span></h3>
+            <div class="serving-adjuster" id="servingAdjuster">
+              <span class="serving-adjuster-label">Servings</span>
+              <div class="serving-pills">
+                <button class="serving-pill" data-mult="0.5" onclick="setServingMultiplier(0.5)">&#189;x</button>
+                <button class="serving-pill active" data-mult="1" onclick="setServingMultiplier(1)">1x</button>
+                <button class="serving-pill" data-mult="2" onclick="setServingMultiplier(2)">2x</button>
+                <button class="serving-pill" data-mult="3" onclick="setServingMultiplier(3)">3x</button>
+              </div>
+            </div>
             <ul class="modal-ingredients" id="modalIngredients"></ul>
           </div>
           <div class="modal-inst-col">
@@ -1501,6 +1643,7 @@
           </div>
         </div>
         <div class="modal-source">From Mom's Home Cooking — Southampton, NY</div>
+        <div class="related-recipes" id="relatedRecipes"></div>
       </div>
     </div>
   </div>
@@ -1733,6 +1876,510 @@
 
   <script src="recipes.js"></script>
   <script>
+    // =====================================================================
+    // CALORIE LOOKUP — estimated calories per standard unit
+    // Keys are lowercase keywords matched against ingredient text.
+    // Values: { cal: calories, per: "unit" }
+    // =====================================================================
+    const CALORIE_DB = {
+      // Proteins
+      'chicken breast': { cal: 165, per: 'lb', unitGrams: 454 },
+      'chicken thigh': { cal: 210, per: 'lb', unitGrams: 454 },
+      'chicken': { cal: 190, per: 'lb', unitGrams: 454 },
+      'turkey': { cal: 170, per: 'lb', unitGrams: 454 },
+      'ground beef': { cal: 250, per: 'lb', unitGrams: 454 },
+      'beef': { cal: 250, per: 'lb', unitGrams: 454 },
+      'steak': { cal: 270, per: 'lb', unitGrams: 454 },
+      'pork': { cal: 240, per: 'lb', unitGrams: 454 },
+      'bacon': { cal: 45, per: 'slice', unitGrams: 8 },
+      'sausage': { cal: 300, per: 'lb', unitGrams: 454 },
+      'shrimp': { cal: 100, per: 'lb', unitGrams: 454 },
+      'salmon': { cal: 210, per: 'lb', unitGrams: 454 },
+      'tuna': { cal: 130, per: 'can', unitGrams: 142 },
+      'crab': { cal: 90, per: 'lb', unitGrams: 454 },
+      'lobster': { cal: 130, per: 'lb', unitGrams: 454 },
+      'flounder': { cal: 120, per: 'lb', unitGrams: 454 },
+      'cod': { cal: 100, per: 'lb', unitGrams: 454 },
+      'ham': { cal: 150, per: 'lb', unitGrams: 454 },
+      'lamb': { cal: 260, per: 'lb', unitGrams: 454 },
+
+      // Dairy
+      'butter': { cal: 100, per: 'tbsp', unitGrams: 14 },
+      'cream cheese': { cal: 50, per: 'oz', unitGrams: 28 },
+      'sour cream': { cal: 23, per: 'tbsp', unitGrams: 15 },
+      'heavy cream': { cal: 50, per: 'tbsp', unitGrams: 15 },
+      'milk': { cal: 150, per: 'cup', unitGrams: 244 },
+      'cheddar': { cal: 110, per: 'oz', unitGrams: 28 },
+      'parmesan': { cal: 110, per: 'oz', unitGrams: 28 },
+      'mozzarella': { cal: 85, per: 'oz', unitGrams: 28 },
+      'cheese': { cal: 100, per: 'oz', unitGrams: 28 },
+      'yogurt': { cal: 150, per: 'cup', unitGrams: 245 },
+      'egg': { cal: 70, per: 'each', unitGrams: 50 },
+      'eggs': { cal: 70, per: 'each', unitGrams: 50 },
+
+      // Grains & Pasta
+      'flour': { cal: 455, per: 'cup', unitGrams: 125 },
+      'bread': { cal: 80, per: 'slice', unitGrams: 30 },
+      'pasta': { cal: 200, per: 'cup', unitGrams: 140 },
+      'spaghetti': { cal: 200, per: 'cup', unitGrams: 140 },
+      'penne': { cal: 200, per: 'cup', unitGrams: 140 },
+      'noodle': { cal: 200, per: 'cup', unitGrams: 140 },
+      'rice': { cal: 205, per: 'cup', unitGrams: 185 },
+      'oats': { cal: 150, per: 'cup', unitGrams: 80 },
+      'bread crumbs': { cal: 110, per: 'cup', unitGrams: 108 },
+      'panko': { cal: 110, per: 'cup', unitGrams: 60 },
+      'tortilla': { cal: 120, per: 'each', unitGrams: 45 },
+      'biscuit': { cal: 180, per: 'each', unitGrams: 60 },
+      'crescent roll': { cal: 100, per: 'each', unitGrams: 28 },
+      'pie crust': { cal: 800, per: 'each', unitGrams: 225 },
+      'puff pastry': { cal: 850, per: 'sheet', unitGrams: 283 },
+
+      // Vegetables
+      'onion': { cal: 45, per: 'each', unitGrams: 150 },
+      'garlic': { cal: 5, per: 'clove', unitGrams: 3 },
+      'tomato': { cal: 25, per: 'each', unitGrams: 150 },
+      'potato': { cal: 160, per: 'each', unitGrams: 213 },
+      'sweet potato': { cal: 110, per: 'each', unitGrams: 150 },
+      'carrot': { cal: 25, per: 'each', unitGrams: 60 },
+      'celery': { cal: 6, per: 'stalk', unitGrams: 40 },
+      'bell pepper': { cal: 30, per: 'each', unitGrams: 150 },
+      'pepper': { cal: 30, per: 'each', unitGrams: 150 },
+      'broccoli': { cal: 30, per: 'cup', unitGrams: 90 },
+      'spinach': { cal: 7, per: 'cup', unitGrams: 30 },
+      'lettuce': { cal: 5, per: 'cup', unitGrams: 36 },
+      'corn': { cal: 130, per: 'can', unitGrams: 340 },
+      'green beans': { cal: 30, per: 'cup', unitGrams: 125 },
+      'mushroom': { cal: 15, per: 'cup', unitGrams: 70 },
+      'zucchini': { cal: 20, per: 'each', unitGrams: 200 },
+      'squash': { cal: 40, per: 'cup', unitGrams: 140 },
+      'avocado': { cal: 240, per: 'each', unitGrams: 150 },
+      'cucumber': { cal: 15, per: 'each', unitGrams: 300 },
+      'asparagus': { cal: 25, per: 'cup', unitGrams: 134 },
+      'cabbage': { cal: 20, per: 'cup', unitGrams: 90 },
+      'cauliflower': { cal: 25, per: 'cup', unitGrams: 100 },
+      'peas': { cal: 60, per: 'cup', unitGrams: 145 },
+      'artichoke': { cal: 60, per: 'each', unitGrams: 128 },
+      'eggplant': { cal: 20, per: 'cup', unitGrams: 82 },
+      'kale': { cal: 35, per: 'cup', unitGrams: 67 },
+
+      // Fruits
+      'apple': { cal: 95, per: 'each', unitGrams: 182 },
+      'banana': { cal: 105, per: 'each', unitGrams: 118 },
+      'lemon': { cal: 20, per: 'each', unitGrams: 58 },
+      'lime': { cal: 20, per: 'each', unitGrams: 67 },
+      'orange': { cal: 60, per: 'each', unitGrams: 130 },
+      'blueberries': { cal: 85, per: 'cup', unitGrams: 148 },
+      'strawberries': { cal: 50, per: 'cup', unitGrams: 152 },
+      'cranberries': { cal: 45, per: 'cup', unitGrams: 100 },
+      'raisins': { cal: 130, per: 'cup', unitGrams: 165 },
+
+      // Canned goods
+      'diced tomatoes': { cal: 70, per: 'can', unitGrams: 411 },
+      'tomato sauce': { cal: 60, per: 'can', unitGrams: 227 },
+      'tomato paste': { cal: 25, per: 'tbsp', unitGrams: 16 },
+      'cream of mushroom': { cal: 200, per: 'can', unitGrams: 305 },
+      'cream of chicken': { cal: 220, per: 'can', unitGrams: 305 },
+      'chicken broth': { cal: 15, per: 'cup', unitGrams: 240 },
+      'beef broth': { cal: 15, per: 'cup', unitGrams: 240 },
+      'black beans': { cal: 220, per: 'can', unitGrams: 425 },
+      'pinto beans': { cal: 210, per: 'can', unitGrams: 425 },
+      'kidney beans': { cal: 210, per: 'can', unitGrams: 425 },
+      'chickpeas': { cal: 210, per: 'can', unitGrams: 425 },
+      'coconut milk': { cal: 450, per: 'can', unitGrams: 400 },
+      'enchilada sauce': { cal: 60, per: 'can', unitGrams: 283 },
+
+      // Oils & Fats
+      'olive oil': { cal: 120, per: 'tbsp', unitGrams: 14 },
+      'vegetable oil': { cal: 120, per: 'tbsp', unitGrams: 14 },
+      'coconut oil': { cal: 120, per: 'tbsp', unitGrams: 14 },
+      'oil': { cal: 120, per: 'tbsp', unitGrams: 14 },
+      'mayonnaise': { cal: 90, per: 'tbsp', unitGrams: 14 },
+      'mayo': { cal: 90, per: 'tbsp', unitGrams: 14 },
+
+      // Sweeteners & Baking
+      'sugar': { cal: 775, per: 'cup', unitGrams: 200 },
+      'brown sugar': { cal: 830, per: 'cup', unitGrams: 220 },
+      'powdered sugar': { cal: 470, per: 'cup', unitGrams: 120 },
+      'honey': { cal: 60, per: 'tbsp', unitGrams: 21 },
+      'maple syrup': { cal: 52, per: 'tbsp', unitGrams: 20 },
+      'vanilla extract': { cal: 12, per: 'tsp', unitGrams: 4 },
+      'vanilla': { cal: 12, per: 'tsp', unitGrams: 4 },
+      'baking powder': { cal: 2, per: 'tsp', unitGrams: 5 },
+      'baking soda': { cal: 0, per: 'tsp', unitGrams: 5 },
+      'cocoa': { cal: 12, per: 'tbsp', unitGrams: 5 },
+      'chocolate chips': { cal: 800, per: 'cup', unitGrams: 170 },
+      'chocolate': { cal: 150, per: 'oz', unitGrams: 28 },
+
+      // Nuts & Seeds
+      'almonds': { cal: 160, per: 'oz', unitGrams: 28 },
+      'almond meal': { cal: 640, per: 'cup', unitGrams: 112 },
+      'walnuts': { cal: 185, per: 'oz', unitGrams: 28 },
+      'pecans': { cal: 195, per: 'oz', unitGrams: 28 },
+      'peanut butter': { cal: 95, per: 'tbsp', unitGrams: 16 },
+      'peanuts': { cal: 160, per: 'oz', unitGrams: 28 },
+
+      // Condiments & Sauces
+      'soy sauce': { cal: 10, per: 'tbsp', unitGrams: 16 },
+      'worcestershire': { cal: 15, per: 'tbsp', unitGrams: 17 },
+      'ketchup': { cal: 20, per: 'tbsp', unitGrams: 17 },
+      'mustard': { cal: 5, per: 'tsp', unitGrams: 5 },
+      'hot sauce': { cal: 0, per: 'tsp', unitGrams: 5 },
+      'salsa': { cal: 10, per: 'tbsp', unitGrams: 16 },
+      'bbq sauce': { cal: 30, per: 'tbsp', unitGrams: 17 },
+      'ranch': { cal: 70, per: 'tbsp', unitGrams: 15 },
+      'italian dressing': { cal: 40, per: 'tbsp', unitGrams: 15 },
+      'vinegar': { cal: 3, per: 'tbsp', unitGrams: 15 },
+      'wine': { cal: 25, per: 'oz', unitGrams: 30 },
+
+      // Spices (negligible calories, but included for completeness)
+      'salt': { cal: 0, per: 'tsp', unitGrams: 6 },
+      'black pepper': { cal: 0, per: 'tsp', unitGrams: 2 },
+      'cumin': { cal: 8, per: 'tsp', unitGrams: 2 },
+      'paprika': { cal: 6, per: 'tsp', unitGrams: 2 },
+      'oregano': { cal: 3, per: 'tsp', unitGrams: 1 },
+      'basil': { cal: 1, per: 'tsp', unitGrams: 1 },
+      'cinnamon': { cal: 6, per: 'tsp', unitGrams: 3 },
+      'nutmeg': { cal: 12, per: 'tsp', unitGrams: 2 },
+      'chili powder': { cal: 8, per: 'tsp', unitGrams: 3 },
+      'garlic powder': { cal: 10, per: 'tsp', unitGrams: 3 },
+      'onion powder': { cal: 8, per: 'tsp', unitGrams: 2 },
+      'taco seasoning': { cal: 30, per: 'packet', unitGrams: 28 },
+      'italian seasoning': { cal: 3, per: 'tsp', unitGrams: 1 },
+      'thyme': { cal: 3, per: 'tsp', unitGrams: 1 },
+      'rosemary': { cal: 2, per: 'tsp', unitGrams: 1 },
+      'bay leaf': { cal: 2, per: 'each', unitGrams: 1 },
+      'dill': { cal: 3, per: 'tsp', unitGrams: 1 },
+      'parsley': { cal: 1, per: 'tbsp', unitGrams: 4 },
+      'cilantro': { cal: 1, per: 'tbsp', unitGrams: 4 },
+
+      // Misc
+      'stuffing mix': { cal: 170, per: 'cup', unitGrams: 60 },
+      'gravy': { cal: 60, per: 'cup', unitGrams: 240 },
+      'cranberry sauce': { cal: 200, per: 'cup', unitGrams: 275 },
+      'water chestnuts': { cal: 35, per: 'can', unitGrams: 227 },
+    };
+
+    // =====================================================================
+    // FRACTION PARSING & FORMATTING UTILITIES
+    // =====================================================================
+
+    // Unicode fraction map
+    const UNICODE_FRACS = {
+      '\u00BD': 0.5,   // ½
+      '\u2153': 0.333,  // ⅓
+      '\u2154': 0.667,  // ⅔
+      '\u00BC': 0.25,  // ¼
+      '\u00BE': 0.75,  // ¾
+      '\u2155': 0.2,   // ⅕
+      '\u2156': 0.4,   // ⅖
+      '\u2157': 0.6,   // ⅗
+      '\u2158': 0.8,   // ⅘
+      '\u2159': 0.167,  // ⅙
+      '\u215A': 0.833,  // ⅚
+      '\u215B': 0.125, // ⅛
+      '\u215C': 0.375, // ⅜
+      '\u215D': 0.625, // ⅝
+      '\u215E': 0.875, // ⅞
+    };
+
+    // Reverse map: decimal -> unicode fraction (for clean display)
+    const DECIMAL_TO_FRAC = {};
+    Object.entries(UNICODE_FRACS).forEach(([ch, val]) => { DECIMAL_TO_FRAC[val] = ch; });
+
+    // Parse a quantity string into a decimal number
+    // Handles: "1", "1.5", "½", "1½", "1 ½", "1/2", "1 1/2", etc.
+    function parseQuantity(str) {
+      str = str.trim();
+      if (!str) return null;
+
+      let total = 0;
+      let remaining = str;
+
+      // Check for leading whole number
+      const wholeMatch = remaining.match(/^(\d+)\s*/);
+      if (wholeMatch) {
+        total += parseInt(wholeMatch[1], 10);
+        remaining = remaining.slice(wholeMatch[0].length);
+      }
+
+      // Check for unicode fraction
+      for (const [ch, val] of Object.entries(UNICODE_FRACS)) {
+        if (remaining.startsWith(ch)) {
+          total += val;
+          remaining = remaining.slice(ch.length);
+          return total;
+        }
+      }
+
+      // Check for slash fraction like "1/2", "3/4"
+      const slashMatch = remaining.match(/^(\d+)\s*\/\s*(\d+)/);
+      if (slashMatch) {
+        total += parseInt(slashMatch[1], 10) / parseInt(slashMatch[2], 10);
+        return total;
+      }
+
+      // Check for decimal
+      const decMatch = remaining.match(/^\.(\d+)/);
+      if (decMatch) {
+        total += parseFloat('0.' + decMatch[1]);
+        return total;
+      }
+
+      // If we got a whole number and nothing else, return it
+      if (wholeMatch && remaining.trim() === '') return total;
+
+      // If nothing parsed, return null
+      if (total === 0 && !wholeMatch) return null;
+      return total;
+    }
+
+    // Format a decimal number back to a display string with fractions
+    function formatQuantity(num) {
+      if (num === 0) return '0';
+
+      const whole = Math.floor(num);
+      const frac = Math.round((num - whole) * 1000) / 1000;
+
+      // Try to find a clean fraction match
+      let fracStr = '';
+      if (frac > 0.01) {
+        // Check known fractions (with tolerance)
+        let matched = false;
+        for (const [decVal, ch] of Object.entries(DECIMAL_TO_FRAC)) {
+          if (Math.abs(frac - parseFloat(decVal)) < 0.02) {
+            fracStr = ch;
+            matched = true;
+            break;
+          }
+        }
+        if (!matched) {
+          // Use decimal, round to 2 places
+          const full = Math.round(num * 100) / 100;
+          // If it's clean, show as integer
+          if (full === Math.floor(full)) return String(Math.floor(full));
+          return String(full);
+        }
+      }
+
+      if (whole > 0 && fracStr) return whole + fracStr;
+      if (whole > 0) return String(whole);
+      return fracStr || String(Math.round(num * 100) / 100);
+    }
+
+    // Parse the leading quantity from an ingredient line
+    // Returns { quantity: number|null, rest: string, originalQtyStr: string }
+    function parseIngredientQuantity(line) {
+      line = line.trim();
+
+      // Build a regex that matches leading numbers/fractions
+      // Pattern: optional whole number, optional space, optional fraction (unicode or slash)
+      const unicodeFracChars = Object.keys(UNICODE_FRACS).join('');
+      const qtyRegex = new RegExp(
+        '^(\\d+\\s*[' + unicodeFracChars + ']|' +                // "1½"
+        '\\d+\\s+\\d+\\s*\\/\\s*\\d+|' +                         // "1 1/2"
+        '\\d+\\s*\\/\\s*\\d+|' +                                  // "1/2"
+        '[' + unicodeFracChars + ']|' +                            // "½"
+        '\\d+\\.?\\d*' +                                           // "1" or "1.5"
+        ')\\s*'
+      );
+
+      const match = line.match(qtyRegex);
+      if (match) {
+        const qtyStr = match[1];
+        const qty = parseQuantity(qtyStr);
+        const rest = line.slice(match[0].length);
+        return { quantity: qty, rest: rest, originalQtyStr: match[0] };
+      }
+
+      return { quantity: null, rest: line, originalQtyStr: '' };
+    }
+
+    // =====================================================================
+    // UNIT CONVERSION FOR CALORIE ESTIMATION
+    // =====================================================================
+    const UNIT_ALIASES = {
+      'cup': 'cup', 'cups': 'cup', 'c': 'cup',
+      'tbsp': 'tbsp', 'tablespoon': 'tbsp', 'tablespoons': 'tbsp', 'tbs': 'tbsp',
+      'tsp': 'tsp', 'teaspoon': 'tsp', 'teaspoons': 'tsp',
+      'oz': 'oz', 'ounce': 'oz', 'ounces': 'oz',
+      'lb': 'lb', 'lbs': 'lb', 'pound': 'lb', 'pounds': 'lb',
+      'can': 'can', 'cans': 'can',
+      'clove': 'clove', 'cloves': 'clove',
+      'slice': 'slice', 'slices': 'slice',
+      'each': 'each',
+      'packet': 'packet', 'packets': 'packet', 'package': 'packet', 'pkg': 'packet',
+      'stalk': 'stalk', 'stalks': 'stalk',
+      'sheet': 'sheet', 'sheets': 'sheet',
+    };
+
+    // Conversion factors to normalize between units
+    const UNIT_TO_TBSP = { 'cup': 16, 'tbsp': 1, 'tsp': 0.333 };
+    const UNIT_TO_OZ = { 'lb': 16, 'oz': 1 };
+
+    function estimateIngredientCalories(line) {
+      const parsed = parseIngredientQuantity(line);
+      const qty = parsed.quantity || 1;
+      const rest = parsed.rest.toLowerCase();
+
+      // Parse unit from the rest
+      const unitMatch = rest.match(/^(cup|cups|tbsp|tablespoons?|tbs|tsp|teaspoons?|oz|ounces?|lbs?|pounds?|cans?|cloves?|slices?|packets?|packages?|pkg|stalks?|sheets?)\b\s*/i);
+      let unit = 'each';
+      let foodPart = rest;
+      if (unitMatch) {
+        unit = UNIT_ALIASES[unitMatch[1].toLowerCase()] || 'each';
+        foodPart = rest.slice(unitMatch[0].length);
+      }
+
+      // Try to match a food keyword from CALORIE_DB (longest match first)
+      const sortedKeys = Object.keys(CALORIE_DB).sort((a, b) => b.length - a.length);
+      let matchedEntry = null;
+      for (const key of sortedKeys) {
+        if (rest.includes(key)) {
+          matchedEntry = CALORIE_DB[key];
+          break;
+        }
+      }
+
+      if (!matchedEntry) return 0;
+
+      const dbUnit = matchedEntry.per;
+      const dbCal = matchedEntry.cal;
+
+      // If units match directly, simple multiply
+      if (unit === dbUnit) return qty * dbCal;
+
+      // Try volume conversions (cup/tbsp/tsp)
+      if (UNIT_TO_TBSP[unit] !== undefined && UNIT_TO_TBSP[dbUnit] !== undefined) {
+        const ratio = UNIT_TO_TBSP[unit] / UNIT_TO_TBSP[dbUnit];
+        return qty * ratio * dbCal;
+      }
+
+      // Try weight conversions (lb/oz)
+      if (UNIT_TO_OZ[unit] !== undefined && UNIT_TO_OZ[dbUnit] !== undefined) {
+        const ratio = UNIT_TO_OZ[unit] / UNIT_TO_OZ[dbUnit];
+        return qty * ratio * dbCal;
+      }
+
+      // Fallback: assume qty maps directly to the DB entry
+      return qty * dbCal;
+    }
+
+    function estimateRecipeCalories(ingredients) {
+      let total = 0;
+      for (const ing of ingredients) {
+        total += estimateIngredientCalories(ing);
+      }
+      return Math.round(total);
+    }
+
+    function parseServingCount(servesStr) {
+      if (!servesStr) return 4; // default assumption
+      const match = servesStr.match(/(\d+)/);
+      return match ? parseInt(match[1], 10) : 4;
+    }
+
+    // =====================================================================
+    // SERVING ADJUSTER STATE
+    // =====================================================================
+    let _currentMultiplier = 1;
+    let _currentOriginalIngredients = [];
+    let _currentRecipeTotalCal = 0;
+    let _currentServingCount = 4;
+
+    function setServingMultiplier(mult) {
+      _currentMultiplier = mult;
+
+      // Update pill buttons
+      document.querySelectorAll('.serving-pill').forEach(btn => {
+        btn.classList.toggle('active', parseFloat(btn.dataset.mult) === mult);
+      });
+
+      // Re-render ingredients
+      const ul = document.getElementById('modalIngredients');
+      ul.innerHTML = _currentOriginalIngredients.map(ing => {
+        const scaled = scaleIngredient(ing, mult);
+        return `<li><span>${scaled}</span></li>`;
+      }).join('');
+
+      // Update calorie display
+      updateCalorieDisplay();
+    }
+
+    function scaleIngredient(line, multiplier) {
+      if (multiplier === 1) return line;
+      const parsed = parseIngredientQuantity(line);
+      if (parsed.quantity === null) return line;
+      const newQty = parsed.quantity * multiplier;
+      return formatQuantity(newQty) + ' ' + parsed.rest;
+    }
+
+    function updateCalorieDisplay() {
+      const el = document.getElementById('modalCalories');
+      if (!el) return;
+      if (_currentRecipeTotalCal <= 0) {
+        el.style.display = 'none';
+        return;
+      }
+      el.style.display = '';
+      // Total cals scale with multiplier, but per-serving stays relative
+      // Per-serving = (total * multiplier) / (servingCount * multiplier) = total / servingCount
+      // So per-serving stays constant regardless of multiplier
+      const perServing = Math.round(_currentRecipeTotalCal / _currentServingCount);
+      el.innerHTML = `<svg viewBox="0 0 24 24"><path d="M15.5 1h-8C6.12 1 5 2.12 5 3.5v17C5 21.88 6.12 23 7.5 23h8c1.38 0 2.5-1.12 2.5-2.5v-17C18 2.12 16.88 1 15.5 1zM12 21c-.83 0-1.5-.67-1.5-1.5S11.17 18 12 18s1.5.67 1.5 1.5S12.83 21 12 21zm3-5H9V4h6v12z"/></svg><strong>Est. ~${perServing}</strong> cal/serving`;
+    }
+
+    // =====================================================================
+    // RELATED RECIPES
+    // =====================================================================
+    function getRelatedRecipes(currentSlug, category, count) {
+      // Same category, excluding current
+      let pool = RECIPES.filter(r => r.category === category && r.slug !== currentSlug);
+
+      // Shuffle
+      pool.sort(() => 0.5 - Math.random());
+
+      let picks = pool.slice(0, count);
+
+      // If not enough, fill with random from other categories
+      if (picks.length < count) {
+        const remaining = count - picks.length;
+        const usedSlugs = new Set([currentSlug, ...picks.map(r => r.slug)]);
+        const others = RECIPES.filter(r => !usedSlugs.has(r.slug)).sort(() => 0.5 - Math.random());
+        picks = picks.concat(others.slice(0, remaining));
+      }
+
+      return picks;
+    }
+
+    function renderRelatedRecipes(currentSlug, category) {
+      const container = document.getElementById('relatedRecipes');
+      const related = getRelatedRecipes(currentSlug, category, 3);
+
+      if (related.length === 0) {
+        container.innerHTML = '';
+        return;
+      }
+
+      const cards = related.map(r => {
+        const imgHTML = r.image
+          ? `<img src="${r.image}" alt="${r.title}" loading="lazy">`
+          : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--light-sand),var(--warm-sand));color:var(--driftwood);font-family:'Playfair Display',serif;font-size:12px;font-style:italic;">Mom's recipe</div>`;
+        return `
+          <div class="related-card" onclick="openRecipe('${r.slug}')">
+            <div class="related-card-img">${imgHTML}</div>
+            <div class="related-card-body">
+              <div class="related-card-cat">${r.category || ''}</div>
+              <div class="related-card-title">${r.title}</div>
+            </div>
+          </div>`;
+      }).join('');
+
+      container.innerHTML = `
+        <h3 class="related-recipes-title">You Might Also Like</h3>
+        <div class="related-grid">${cards}</div>
+      `;
+    }
+
     // --- Category images (use first recipe image from each category) ---
     const CAT_IMAGES = {};
     const CAT_COUNTS = {};
@@ -1863,7 +2510,7 @@
       // --- Title ---
       document.getElementById('modalTitle').textContent = r.title;
 
-      // --- Meta row (serves, ingredient count, estimated time) ---
+      // --- Meta row (serves, ingredient count, estimated time, calories) ---
       const metaParts = [];
       if (r.serves) {
         metaParts.push(`<span class="modal-meta-item"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg><strong>${r.serves}</strong></span>`);
@@ -1877,6 +2524,8 @@
       } else if (hasOven) {
         metaParts.push(`<span class="modal-meta-item"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>Oven</span>`);
       }
+      // Calorie estimate placeholder in meta row
+      metaParts.push(`<span class="modal-meta-calories" id="modalCalories" style="display:none;"></span>`);
       document.getElementById('modalMeta').innerHTML = metaParts.join('');
 
       // --- Ingredients ---
@@ -1884,6 +2533,21 @@
       const cleanIngredients = r.ingredients.filter(i =>
         !(/^serves?\s/i.test(i.trim()) || /^makes?\s/i.test(i.trim()) || /^yields?\s/i.test(i.trim()))
       );
+
+      // Store originals for serving adjuster
+      _currentOriginalIngredients = cleanIngredients;
+      _currentMultiplier = 1;
+      _currentServingCount = parseServingCount(r.serves);
+
+      // Calculate calorie estimate
+      _currentRecipeTotalCal = estimateRecipeCalories(cleanIngredients);
+      updateCalorieDisplay();
+
+      // Reset serving pills to 1x
+      document.querySelectorAll('.serving-pill').forEach(btn => {
+        btn.classList.toggle('active', parseFloat(btn.dataset.mult) === 1);
+      });
+
       document.getElementById('modalIngCount').textContent = `(${cleanIngredients.length})`;
       document.getElementById('modalIngredients').innerHTML = cleanIngredients.map(i =>
         `<li><span>${i}</span></li>`
@@ -1933,8 +2597,15 @@
         }).join('');
       }
 
+      // --- Related Recipes ---
+      renderRelatedRecipes(slug, r.category);
+
       document.getElementById('recipeModal').classList.add('open');
       document.body.style.overflow = 'hidden';
+
+      // Scroll modal to top when opening
+      const modalOverlay = document.getElementById('recipeModal');
+      modalOverlay.scrollTop = 0;
     }
 
     function closeRecipe() {
